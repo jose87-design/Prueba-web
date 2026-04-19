@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html class="dark scroll-smooth" lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Educando con chIspA · Consultoría y Formación en IA Educativa</title>
+  <meta name="description" content="Educando con chIspA: IA con criterio pedagógico para docentes y centros educativos. Diagnóstico CHISPA + semáforo antes/durante/después.">
+  <meta name="robots" content="index,follow">
+  <meta name="theme-color" content="#030712">
+  <link rel="canonical" href="https://ia.educandoconchispa.com/">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Educando con chIspA",
+    "url": "https://educandoconchispa.com",
+    "logo": "https://educandoconchispa.com/favicon.svg"
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Educando con chIspA (IA)",
+    "url": "https://ia.educandoconchispa.com/"
+  }
+  </script>
+
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+  <!-- Tailwind config ANTES del CDN para evitar "tailwind is not defined" -->
+  <script>
+    window.tailwind = { config: {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#3BF6FF",
+            "primary-green": "#4ADE80",
+            "background-dark": "#030712",
+            "surface-dark": "#0B1221",
+            "border-dark": "#1E293B",
+          },
+          fontFamily: { body: ["Inter", "sans-serif"] },
+          backgroundImage: {
+            "chispa-gradient": "linear-gradient(to right, #3BF6FF, #4ADE80)",
+            "glow-radial": "radial-gradient(circle at center, rgba(59, 246, 255, 0.14) 0%, rgba(3, 7, 18, 0) 70%)",
+            "tech-grid": "linear-gradient(rgba(30, 41, 59, 0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(30, 41, 59, 0.3) 1px, transparent 1px)"
+          }
+        }
+      }
+    }};
+  </script>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+  <style>
+    :focus-visible { outline: 2px solid rgba(59,246,255,0.55); outline-offset: 3px; border-radius: 12px; }
+    .no-scroll { overflow: hidden; }
+    .text-glow { text-shadow: 0 0 20px rgba(59,246,255,0.25); }
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: .25rem .75rem;
+      border-radius: 9999px;
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: 0 0 18px rgba(0,0,0,0.25);
+      font-weight: 700;
+      line-height: 1.1;
+      word-break: break-word;
+      max-width: 55%;
+      text-align: right;
+    }
+    .chip-red {
+      color: #fff;
+      background: linear-gradient(90deg, rgba(239,68,68,0.95), rgba(220,38,38,0.60));
+      box-shadow: 0 0 18px rgba(239,68,68,0.18);
+    }
+    .chip-yellow {
+      color: #0b1221;
+      background: linear-gradient(90deg, rgba(250,204,21,0.95), rgba(245,158,11,0.65));
+      box-shadow: 0 0 18px rgba(250,204,21,0.16);
+    }
+    .chip-green {
+      color: #0b1221;
+      background: linear-gradient(90deg, rgba(74,222,128,0.95), rgba(34,197,94,0.65));
+      box-shadow: 0 0 18px rgba(74,222,128,0.16);
+    }
+  </style>
+</head>
+
+<body class="bg-background-dark text-white font-body overflow-x-hidden selection:bg-primary selection:text-background-dark">
+  <div class="relative min-h-screen w-full flex flex-col">
+
+    <a href="#recursos" class="sr-only focus:not-sr-only fixed top-4 left-4 z-[100] bg-white text-background-dark px-4 py-2 rounded-xl font-bold shadow-lg">
+      Saltar al contenido
+    </a>
+
+    <header class="w-full border-b border-white/10 bg-background-dark/80 backdrop-blur-md sticky top-0 z-50">
+      <div class="max-w-[1280px] mx-auto px-6 py-4 flex items-center justify-between">
+
+        <a href="https://educandoconchispa.com" class="flex items-center gap-3 px-4 py-2 rounded-2xl bg-surface-dark/70 backdrop-blur border border-primary/20 shadow-[0_0_18px_rgba(59,246,255,0.10)]">
+          <svg xmlns="http://www.w3.org/2000/svg" width="230" height="58" viewBox="0 0 275 70" class="block">
+            <defs>
+              <linearGradient id="sparkGradientFinal" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#22d3ee"/>
+                <stop offset="100%" stop-color="#4ade80"/>
+              </linearGradient>
+              <linearGradient id="textGradientSmooth" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#22d3ee"/>
+                <stop offset="100%" stop-color="#4ade80"/>
+              </linearGradient>
+              <filter id="superGlowFinal" x="-100%" y="-100%" width="300%" height="300%">
+                <feGaussianBlur stdDeviation="3.5" result="coloredBlur"/>
+                <feMerge>
+                  <feMergeNode in="coloredBlur"/>
+                  <feMergeNode in="coloredBlur"/>
+                  <feMergeNode in="SourceGraphic"/>
+                </feMerge>
+              </filter>
+              <filter id="unifiedTextGlow" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="1.2" result="blur"/>
+                <feMerge>
+                  <feMergeNode in="blur"/>
+                  <feMergeNode in="SourceGraphic"/>
+                </feMerge>
+              </filter>
+            </defs>
+
+            <g transform="translate(20, 17)" filter="url(#superGlowFinal)">
+              <circle cx="18" cy="18" r="16" fill="none" stroke="url(#sparkGradientFinal)" stroke-width="2.5"/>
+              <path d="M18 9 L19.5 13.5 L24 15 L19.5 16.5 L18 21 L16.5 16.5 L12 15 L16.5 13.5 Z"
+                    fill="url(#sparkGradientFinal)"/>
+              <circle cx="25" cy="12" r="1.5" fill="#4ade80" opacity="0.9"/>
+              <circle cx="11" cy="22" r="1" fill="#22d3ee" opacity="0.8"/>
+            </g>
+
+            <text x="70" y="28" font-family="'Outfit', sans-serif" font-size="11" font-weight="600" letter-spacing="2" fill="#94a3b8">
+              EDUCANDO CON
+            </text>
+
+            <text y="54" font-family="'Outfit', sans-serif" fill="url(#textGradientSmooth)" filter="url(#unifiedTextGlow)">
+              <tspan x="71" font-weight="600" font-size="24">ch</tspan>
+              <tspan x="96" font-weight="700" font-size="30">I</tspan>
+              <tspan x="104" font-weight="600" font-size="24">sp</tspan>
+              <tspan x="129" font-weight="700" font-size="30">A</tspan>
+            </text>
+          </svg>
+        </a>
+
+        <div class="hidden md:flex items-center gap-8">
+          <nav class="flex gap-8" aria-label="Principal">
+            <a class="text-gray-400 hover:text-primary text-sm font-medium transition-colors" href="#metodologia">Metodología</a>
+            <a class="text-gray-400 hover:text-primary text-sm font-medium transition-colors" href="#recursos">Diagnóstico</a>
+            <a class="text-gray-400 hover:text-primary text-sm font-medium transition-colors" href="#destinatarios">Para quién</a>
+            <a class="text-gray-400 hover:text-primary text-sm font-medium transition-colors" href="sobre-mi.html">Sobre mí</a>
+            <a class="text-gray-400 hover:text-primary text-sm font-medium transition-colors" href="https://educandoconchispa.com/pymes/">PYMES &amp; FPE</a>
+          </nav>
+          <a class="flex items-center justify-center rounded-lg h-9 px-5 border border-primary/30 hover:bg-primary/10 hover:border-primary text-primary text-sm font-bold transition-all shadow-[0_0_10px_rgba(59,246,255,0.1)]"
+             href="#contacto">Contacto</a>
+        </div>
+
+        <button id="menuBtn" class="md:hidden text-white rounded-xl p-2 hover:text-primary"
+                aria-label="Menú" aria-controls="mobileMenu" aria-expanded="false">
+          <span class="material-symbols-outlined" style="font-family:'Material Symbols Outlined';">menu</span>
+        </button>
+      </div>
+
+      <div id="mobileMenu" class="md:hidden hidden border-t border-white/10 bg-background-dark/95 backdrop-blur-xl shadow-2xl">
+        <div class="px-6 py-6 flex flex-col gap-5">
+          <a class="text-gray-200 hover:text-primary text-lg font-semibold" href="#metodologia">Metodología</a>
+          <a class="text-gray-200 hover:text-primary text-lg font-semibold" href="#recursos">Diagnóstico</a>
+          <a class="text-gray-200 hover:text-primary text-lg font-semibold" href="#destinatarios">Para quién</a>
+          <a class="text-gray-200 hover:text-primary text-lg font-semibold" href="sobre-mi.html">Sobre mí</a>
+          <a class="text-gray-200 hover:text-primary text-lg font-semibold" href="https://educandoconchispa.com/pymes/">PYMES &amp; FPE</a>
+          <a class="text-gray-200 hover:text-primary text-lg font-semibold" href="#contacto">Contacto</a>
+
+          <div class="pt-4 mt-2 border-t border-white/10 text-sm text-gray-400 flex flex-col gap-2">
+            <a href="https://educandoconchispa.com" class="hover:text-primary">Inicio global</a>
+            <a href="privacidad.html" class="hover:text-primary">Política de privacidad</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section id="top" class="relative pt-16 pb-20 md:pt-20 md:pb-28 px-6 overflow-hidden">
+      <div class="absolute inset-0 z-0 bg-background-dark">
+        <div class="absolute inset-0 bg-tech-grid bg-[length:40px_40px] opacity-10"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-glow-radial opacity-70 pointer-events-none"></div>
+        <div class="absolute top-20 right-[10%] w-[300px] h-[300px] border border-primary/10 rounded-full opacity-20 animate-pulse"></div>
+        <div class="absolute bottom-20 left-[5%] w-px h-64 bg-gradient-to-b from-transparent via-primary/30 to-transparent"></div>
+        <div class="absolute top-40 right-0 w-64 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent"></div>
+      </div>
+
+      <div class="relative z-10 max-w-[980px] mx-auto text-center flex flex-col items-center gap-7">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/30 bg-surface-dark/50 backdrop-blur-sm shadow-[0_0_15px_rgba(59,246,255,0.15)]">
+          <span class="relative flex h-2 w-2">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+          </span>
+          <span class="text-primary-green text-xs font-bold tracking-wide uppercase">IA Educativa con criterio</span>
+        </div>
+
+        <h1 class="text-5xl md:text-7xl font-black leading-[1.08] tracking-tight text-white max-w-4xl drop-shadow-lg">
+          <span class="block text-white/90 font-semibold md:font-bold text-4xl md:text-6xl">
+            La IA analiza datos.
+          </span>
+          <span class="block mt-2 text-transparent bg-clip-text bg-gradient-to-r from-white via-primary to-primary-green text-glow">
+            Los profes encendemos la chIspA.
+          </span>
+        </h1>
+
+        <p class="text-gray-300 text-lg md:text-xl font-light leading-relaxed max-w-2xl">
+          IA con criterio pedagógico para docentes y centros educativos.
+          <span class="text-white font-semibold">Tecnología aplicada al aula real</span>, sin humo y con límites claros.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-5 mt-6 w-full justify-center">
+          <a href="#contacto"
+             class="group flex items-center justify-center gap-3 rounded-full h-14 px-8 bg-gradient-to-r from-primary to-primary-green text-background-dark text-lg font-bold shadow-[0_0_25px_rgba(59,246,255,0.35)] hover:shadow-[0_0_40px_rgba(59,246,255,0.55)] transition-all transform hover:-translate-y-1">
+            <span class="material-symbols-outlined text-[24px] group-hover:rotate-12 transition-transform" style="font-family:'Material Symbols Outlined';">assignment</span>
+            Solicitar diagnóstico CHISPA
+          </a>
+
+          <a href="#contacto"
+             class="flex items-center justify-center gap-3 rounded-full h-14 px-8 bg-surface-dark/50 backdrop-blur border border-white/20 hover:border-primary hover:bg-surface-dark text-white text-lg font-bold transition-all group">
+            <span class="material-symbols-outlined text-[24px] text-primary group-hover:text-white transition-colors" style="font-family:'Material Symbols Outlined';">school</span>
+            Hablar sobre mi centro
+          </a>
+        </div>
+
+        <p class="text-gray-400 text-sm max-w-2xl mt-1">
+          Incluye autoevaluación + semáforo pedagógico <span class="text-white/90 font-semibold">antes · durante · después</span>.
+        </p>
+      </div>
+    </section>
+
+    <section class="py-12 md:py-20 px-6 bg-[#050B14] relative border-t border-white/5" id="metodologia">
+      <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-primary-green/5 blur-[100px] pointer-events-none"></div>
+
+      <div class="max-w-[1100px] mx-auto relative z-10">
+        <div class="mb-12 md:mb-16 text-center md:text-left flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <div>
+            <h2 class="text-3xl md:text-5xl font-bold mb-4 tracking-tight">
+              Metodología <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-green">CHISPA</span>
+            </h2>
+            <p class="text-gray-400 max-w-xl text-lg">Seis pilares para una IA educativa humana, útil y sostenible.</p>
+          </div>
+          <div class="hidden md:block w-32 h-1 bg-gradient-to-r from-primary to-transparent rounded-full mb-2"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 md:gap-9">
+          <div class="group p-7 md:p-8 rounded-3xl bg-surface-dark border border-white/5 hover:border-primary/40 transition-all hover:shadow-[0_0_30px_rgba(59,246,255,0.06)] hover:-translate-y-1 relative overflow-hidden">
+            <div class="absolute top-0 right-0 p-4 opacity-[0.03] group-hover:opacity-[0.08] transition-opacity"><span class="text-9xl font-black text-white">C</span></div>
+            <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
+              <span class="material-symbols-outlined text-primary text-3xl" style="font-family:'Material Symbols Outlined';">psychology</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-3"><span class="text-primary">C</span>riterio pedagógico</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">La decisión educativa va antes que la herramienta. Elegimos por valor, no por moda.</p>
+          </div>
+
+          <div class="group p-7 md:p-8 rounded-3xl bg-surface-dark border border-white/5 hover:border-primary/40 transition-all hover:shadow-[0_0_30px_rgba(59,246,255,0.06)] hover:-translate-y-1 relative overflow-hidden">
+            <div class="absolute top-0 right-0 p-4 opacity-[0.03] group-hover:opacity-[0.08] transition-opacity"><span class="text-9xl font-black text-white">H</span></div>
+            <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
+              <span class="material-symbols-outlined text-primary text-3xl" style="font-family:'Material Symbols Outlined';">diversity_3</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-3"><span class="text-primary">H</span>umanismo digital</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">La IA apoya; la relación educativa la construyen las personas.</p>
+          </div>
+
+          <div class="group p-7 md:p-8 rounded-3xl bg-surface-dark border border-white/5 hover:border-primary/40 transition-all hover:shadow-[0_0_30px_rgba(59,246,255,0.06)] hover:-translate-y-1 relative overflow-hidden">
+            <div class="absolute top-0 right-0 p-4 opacity-[0.03] group-hover:opacity-[0.08] transition-opacity"><span class="text-9xl font-black text-white">I</span></div>
+            <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
+              <span class="material-symbols-outlined text-primary text-3xl" style="font-family:'Material Symbols Outlined';">rocket_launch</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-3"><span class="text-primary">I</span>mplementación realista</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">Aplicable a centros reales: tiempos, recursos, normativa y aula.</p>
+          </div>
+
+          <div class="group p-7 md:p-8 rounded-3xl bg-surface-dark border border-white/5 hover:border-primary/40 transition-all hover:shadow-[0_0_30px_rgba(59,246,255,0.06)] hover:-translate-y-1 relative overflow-hidden">
+            <div class="absolute top-0 right-0 p-4 opacity-[0.03] group-hover:opacity-[0.08] transition-opacity"><span class="text-9xl font-black text-white">S</span></div>
+            <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
+              <span class="material-symbols-outlined text-primary text-3xl" style="font-family:'Material Symbols Outlined';">shield_lock</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-3"><span class="text-primary">S</span>eguridad y ética</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">Privacidad, transparencia y límites claros con alumnado y datos del centro.</p>
+          </div>
+
+          <div class="group p-7 md:p-8 rounded-3xl bg-surface-dark border border-white/5 hover:border-primary/40 transition-all hover:shadow-[0_0_30px_rgba(59,246,255,0.06)] hover:-translate-y-1 relative overflow-hidden">
+            <div class="absolute top-0 right-0 p-4 opacity-[0.03] group-hover:opacity-[0.08] transition-opacity"><span class="text-9xl font-black text-white">P</span></div>
+            <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
+              <span class="material-symbols-outlined text-primary text-3xl" style="font-family:'Material Symbols Outlined';">timer</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-3"><span class="text-primary">P</span>roductividad pedagógica</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">Reducimos tareas mecánicas para reinvertir tiempo en acompañamiento y aprendizaje.</p>
+          </div>
+
+          <div class="group p-7 md:p-8 rounded-3xl bg-surface-dark border border-white/5 hover:border-primary/40 transition-all hover:shadow-[0_0_30px_rgba(59,246,255,0.06)] hover:-translate-y-1 relative overflow-hidden">
+            <div class="absolute top-0 right-0 p-4 opacity-[0.03] group-hover:opacity-[0.08] transition-opacity"><span class="text-9xl font-black text-white">A</span></div>
+            <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
+              <span class="material-symbols-outlined text-primary text-3xl" style="font-family:'Material Symbols Outlined';">precision_manufacturing</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-3"><span class="text-primary">A</span>utomatización educativa</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">Procesos claros para gestión, comunicación y coordinación (sin perder el foco educativo).</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-12 md:py-20 px-6 relative bg-background-dark" id="recursos">
+      <div class="max-w-[1100px] mx-auto bg-gradient-to-br from-[#0B1221] to-[#050B14] border border-white/10 rounded-[2rem] p-7 sm:p-8 md:p-14 overflow-hidden relative shadow-2xl">
+        <div class="absolute -right-20 -top-20 w-80 h-80 bg-primary/10 rounded-full blur-[80px]"></div>
+        <div class="absolute -left-20 -bottom-20 w-60 h-60 bg-primary-green/10 rounded-full blur-[60px]"></div>
+
+        <div class="flex flex-col md:flex-row gap-10 md:gap-16 items-start relative z-10">
+          <div class="w-full md:w-1/2 flex flex-col gap-7">
+            <div>
+              <span class="text-primary text-sm font-bold tracking-wider uppercase mb-2 block">Recurso gratuito</span>
+              <h2 class="text-3xl md:text-5xl font-bold leading-[1.1]">
+                Diagnóstico CHISPA<br/>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-green">Uso de IA en centros</span>
+              </h2>
+            </div>
+
+            <p class="text-gray-300 text-lg">
+              Un diagnóstico breve para tomar decisiones con criterio:
+              <span class="text-white font-semibold">qué usar, cuándo y con qué límites</span>.
+              Incluye el <span class="text-white font-semibold">semáforo pedagógico</span> (antes · durante · después).
+            </p>
+
+            <div class="flex flex-col gap-5 mt-1 pl-1">
+              <div class="flex items-start gap-4">
+                <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+                  <span class="material-symbols-outlined text-primary text-xl" style="font-family:'Material Symbols Outlined';">check_circle</span>
+                </div>
+                <div>
+                  <h4 class="font-bold text-white text-lg">Diagnóstico inicial del centro</h4>
+                  <p class="text-sm text-gray-400 mt-1">Autoevaluación rápida para situar el punto de partida.</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4">
+                <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+                  <span class="material-symbols-outlined text-primary text-xl" style="font-family:'Material Symbols Outlined';">traffic</span>
+                </div>
+                <div>
+                  <h4 class="font-bold text-white text-lg">Semáforo pedagógico</h4>
+                  <p class="text-sm text-gray-400 mt-1">Guía clara para decidir antes, durante y después de usar IA.</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4">
+                <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+                  <span class="material-symbols-outlined text-primary text-xl" style="font-family:'Material Symbols Outlined';">explore</span>
+                </div>
+                <div>
+                  <h4 class="font-bold text-white text-lg">Primeros pasos recomendados</h4>
+                  <p class="text-sm text-gray-400 mt-1">Acciones iniciales para criterios, formación y puesta en marcha.</p>
+                </div>
+              </div>
+            </div>
+
+            <a href="#contacto"
+               class="mt-2 w-fit inline-flex items-center justify-center gap-3 rounded-full h-12 px-8 bg-white text-background-dark text-base font-bold hover:bg-primary transition-all shadow-lg hover:shadow-primary/50">
+              Solicitar el diagnóstico
+              <span class="material-symbols-outlined text-lg" style="font-family:'Material Symbols Outlined';">arrow_forward</span>
+            </a>
+
+            <p class="text-gray-500 text-xs">
+              Te lo envío por email después de dejar tu contacto (y así lo puedo adaptar a tu contexto si hace falta).
+            </p>
+          </div>
+
+          <div class="w-full md:w-1/2">
+            <div class="relative md:aspect-[4/3] rounded-2xl overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.45)] border border-white/10 bg-[#050B14] flex items-stretch justify-center p-4 sm:p-6 md:p-8">
+              <div class="absolute inset-0 bg-[linear-gradient(rgba(59,246,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(59,246,255,0.08)_1px,transparent_1px)] bg-[length:20px_20px] opacity-20"></div>
+
+              <div class="w-full flex items-stretch">
+                <div class="relative bg-surface-dark/90 backdrop-blur-xl border border-primary/25 p-5 sm:p-6 md:p-10 rounded-2xl w-full shadow-2xl">
+                  <div class="flex items-center gap-4 mb-5 border-b border-white/10 pb-4">
+                    <div class="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center text-primary shadow-[0_0_10px_rgba(59,246,255,0.18)]">
+                      <span class="material-symbols-outlined text-lg" style="font-family:'Material Symbols Outlined';">analytics</span>
+                    </div>
+                    <div class="text-base font-bold text-white">Semáforo pedagógico</div>
+                  </div>
+
+                  <div class="space-y-4 text-sm text-gray-200">
+                    <div class="flex items-start justify-between gap-3">
+                      <span class="shrink-0">Antes</span>
+                      <span class="chip chip-red">Decidir límites</span>
+                    </div>
+                    <div class="flex items-start justify-between gap-3">
+                      <span class="shrink-0">Durante</span>
+                      <span class="chip chip-yellow">Supervisión docente</span>
+                    </div>
+                    <div class="flex items-start justify-between gap-3">
+                      <span class="shrink-0">Después</span>
+                      <span class="chip chip-green">Verificar impacto</span>
+                    </div>
+                  </div>
+
+                  <div class="mt-6 pt-4 border-t border-white/10 flex justify-between items-center">
+                    <span class="text-xs text-gray-500">Enfoque</span>
+                    <span class="text-primary font-bold text-sm bg-primary/10 px-3 py-1 rounded-full border border-primary/20">
+                      Aula real
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="py-12 md:py-20 px-6 bg-[#050B14]" id="destinatarios">
+      <div class="max-w-[1100px] mx-auto">
+        <div class="text-center mb-10 md:mb-12">
+          <h2 class="text-3xl md:text-5xl font-bold tracking-tight">¿Para quién es?</h2>
+          <p class="text-gray-400 mt-4 text-lg max-w-2xl mx-auto">Priorizo el trabajo con centros (B2B), sin perder la mirada del aula y del docente.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="p-8 rounded-3xl bg-surface-dark border border-white/10">
+            <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+              <span class="material-symbols-outlined text-primary" style="font-family:'Material Symbols Outlined';">apartment</span> Centros educativos
+            </h3>
+            <ul class="space-y-3 text-gray-300">
+              <li>• Diagnóstico inicial del uso de IA en el centro</li>
+              <li>• Formación docente adaptada al contexto real</li>
+              <li>• Criterios claros para una implementación responsable</li>
+            </ul>
+          </div>
+
+          <div class="p-8 rounded-3xl bg-surface-dark border border-white/10">
+            <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+              <span class="material-symbols-outlined text-primary" style="font-family:'Material Symbols Outlined';">person</span> Docentes individuales
+            </h3>
+            <ul class="space-y-3 text-gray-300">
+              <li>• Recursos y acompañamiento con enfoque pedagógico</li>
+              <li>• Uso de IA sin dependencia ni tecnicismos</li>
+              <li>• Planificación, evaluación y feedback con criterio</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-12 md:py-20 px-6 bg-background-dark" id="contacto">
+      <div class="max-w-[1100px] mx-auto">
+        <div class="text-center mb-10">
+          <h2 class="text-3xl md:text-5xl font-bold tracking-tight">Hablemos de tu contexto</h2>
+          <p class="text-gray-400 mt-4 text-lg max-w-2xl mx-auto">
+            Solicita el diagnóstico o cuéntame tu caso. <span class="text-white font-semibold">Te responderé personalmente</span>.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="p-8 rounded-3xl bg-surface-dark border border-white/10">
+            <h3 class="text-xl font-bold mb-2">Cuéntame tu caso</h3>
+            <p class="text-gray-400 text-sm mb-6">Con lo mínimo me vale. Si añades contexto, mejor.</p>
+
+            <form id="lead-form" class="space-y-4">
+              <input class="w-full rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-gray-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
+                     type="text" name="nombre" placeholder="Tu nombre*" required>
+
+              <input class="w-full rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-gray-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
+                     type="email" name="email" placeholder="Tu email*" required>
+
+              <input class="w-full rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-gray-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
+                     type="tel" name="telefono" placeholder="Teléfono (opcional, si prefieres que te llame)">
+
+              <select class="w-full rounded-xl bg-surface-dark border border-white/10 text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
+                      style="color:#fff; background-color:#0B1221;" name="perfil" required>
+                <option value="" style="background-color:#0B1221;color:#fff;">Soy...</option>
+                <option value="centro" style="background-color:#0B1221;color:#fff;">Centro educativo</option>
+                <option value="docente" style="background-color:#0B1221;color:#fff;">Docente</option>
+                <option value="otro" style="background-color:#0B1221;color:#fff;">Otro profesional</option>
+              </select>
+
+              <textarea class="w-full rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-gray-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 min-h-[120px]"
+                        name="mensaje"
+                        placeholder="Opcional: ¿qué te gustaría conseguir con la IA? (Si es un centro: nº docentes + objetivo)"></textarea>
+
+              <input type="text" name="company" tabindex="-1" autocomplete="off" style="display:none">
+
+              <label class="flex items-start gap-3 text-sm text-gray-300">
+                <input type="checkbox" name="consentimiento" required class="mt-1 rounded border-white/20 bg-white/10">
+                <span>
+                  He leído y acepto la <a href="privacidad.html" class="text-primary hover:underline">política de privacidad</a>.
+                </span>
+              </label>
+
+              <button type="submit"
+                      class="w-full group flex items-center justify-center gap-2 rounded-xl h-12 bg-gradient-to-r from-primary to-primary-green text-background-dark font-bold shadow-[0_0_22px_rgba(59,246,255,0.25)] hover:shadow-[0_0_35px_rgba(59,246,255,0.45)] transition-all">
+                <span class="material-symbols-outlined text-[20px] group-hover:rotate-6 transition-transform" style="font-family:'Material Symbols Outlined';">send</span>
+                Enviar
+              </button>
+
+              <p id="form-status" class="text-sm text-gray-300 pt-1"></p>
+
+              <p class="text-xs text-gray-500">
+                Respuesta humana. Sin spam. Tus datos se usarán solo para este contacto y para enviarte el recurso solicitado.
+              </p>
+            </form>
+          </div>
+
+          <div class="p-8 rounded-3xl bg-surface-dark border border-white/10">
+            <h3 class="text-xl font-bold mb-4">¿Qué puedes esperar?</h3>
+            <ul class="space-y-3 text-gray-300">
+              <li>• Respuesta personal, no automatizada si añades tu teléfono.</li>
+              <li>• Recomendación a medida según tu contexto.</li>
+              <li>• Enfoque realista: aula, claustro y centro.</li>
+              <li>• Cero humo: límites claros y criterio pedagógico.</li>
+            </ul>
+
+            <div class="mt-8 p-5 rounded-2xl border border-white/10 bg-white/5">
+              <p class="text-gray-300 text-sm">
+                Si quieres ir al grano: indica “Centro” y añade
+                <span class="text-white font-semibold">nº de docentes</span> y
+                <span class="text-white font-semibold">objetivo</span> (criterios, formación, protocolo, automatización, etc.).
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-12 md:py-20 px-6 bg-[#050B14]" id="faq">
+      <div class="max-w-[1100px] mx-auto">
+        <div class="text-center mb-10">
+          <h2 class="text-3xl md:text-5xl font-bold tracking-tight">Preguntas frecuentes</h2>
+          <p class="text-gray-400 mt-4 text-lg max-w-2xl mx-auto">
+            Respuestas claras, sin humo.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="p-6 rounded-3xl bg-surface-dark border border-white/10">
+            <h3 class="font-bold text-white mb-2">¿Qué incluye el Diagnóstico CHISPA?</h3>
+            <p class="text-gray-300 text-sm leading-relaxed">
+              Autoevaluación del centro + semáforo pedagógico (antes/durante/después) + recomendaciones de primeros pasos ajustadas al contexto.
+            </p>
+          </div>
+
+          <div class="p-6 rounded-3xl bg-surface-dark border border-white/10">
+            <h3 class="font-bold text-white mb-2">¿Cuánto se tarda en completarlo?</h3>
+            <p class="text-gray-300 text-sm leading-relaxed">
+              Entre 20 y 30 minutos. Idealmente lo responde un equipo (dirección + coordinación + docentes) para que salga una foto real.
+            </p>
+          </div>
+
+          <div class="p-6 rounded-3xl bg-surface-dark border border-white/10">
+            <h3 class="font-bold text-white mb-2">¿Cumple con protección de datos?</h3>
+            <p class="text-gray-300 text-sm leading-relaxed">
+              Sí: el enfoque prioriza privacidad y límites. No se piden datos sensibles del alumnado. Si se comparten ejemplos, deben ser anónimos.
+            </p>
+          </div>
+
+          <div class="p-6 rounded-3xl bg-surface-dark border border-white/10">
+            <h3 class="font-bold text-white mb-2">¿Sirve si el claustro no usa IA todavía?</h3>
+            <p class="text-gray-300 text-sm leading-relaxed">
+              Sí. De hecho, es el mejor momento: defines criterios y reglas antes de que cada persona adopte “su herramienta” sin protocolo común.
+            </p>
+          </div>
+
+          <div class="p-6 rounded-3xl bg-surface-dark border border-white/10">
+            <h3 class="font-bold text-white mb-2">¿Qué recibo después?</h3>
+            <p class="text-gray-300 text-sm leading-relaxed">
+              Un resumen con prioridades: qué hacer primero, qué evitar, y qué pasos son realistas según tiempo, recursos y objetivos del centro.
+            </p>
+          </div>
+
+          <div class="p-6 rounded-3xl bg-surface-dark border border-white/10">
+            <h3 class="font-bold text-white mb-2">¿El diagnóstico es gratuito?</h3>
+            <p class="text-gray-300 text-sm leading-relaxed">
+              Sí. La idea es ayudar a tomar decisiones con criterio. Si el centro quiere, después se puede plantear formación o acompañamiento.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="border-t border-white/10 py-10 px-6 text-center text-gray-400">
+      <div class="max-w-[1100px] mx-auto space-y-3">
+        <div class="text-sm">© <span id="footerYear"></span> Educando con chIspA · IA aplicada a la educación</div>
+        <div class="text-xs flex flex-wrap justify-center gap-x-3 gap-y-2">
+          <a href="https://educandoconchispa.com" class="hover:text-primary">Inicio global</a>
+          <span class="text-gray-600">·</span>
+          <a href="sobre-mi.html" class="hover:text-primary">Sobre mí</a>
+          <span class="text-gray-600">·</span>
+          <a href="https://educandoconchispa.com/pymes/" class="hover:text-primary">PYMES &amp; FPE</a>
+          <span class="text-gray-600">·</span>
+          <a href="privacidad.html" class="hover:text-primary">Política de privacidad</a>
+          <span class="text-gray-600">·</span>
+          <a href="#contacto" class="hover:text-primary">Contacto</a>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    document.getElementById('footerYear').textContent = new Date().getFullYear();
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const body = document.body;
+
+    function openMenu() {
+      mobileMenu.classList.remove('hidden');
+      menuBtn.setAttribute('aria-expanded', 'true');
+      body.classList.add('no-scroll');
+    }
+    function closeMenu() {
+      mobileMenu.classList.add('hidden');
+      menuBtn.setAttribute('aria-expanded', 'false');
+      body.classList.remove('no-scroll');
+    }
+
+    if (menuBtn && mobileMenu) {
+      menuBtn.addEventListener('click', () => {
+        const isHidden = mobileMenu.classList.contains('hidden');
+        isHidden ? openMenu() : closeMenu();
+      });
+
+      mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden')) closeMenu();
+      });
+
+      document.addEventListener('click', (e) => {
+        const isOpen = !mobileMenu.classList.contains('hidden');
+        if (!isOpen) return;
+        const inside = mobileMenu.contains(e.target) || menuBtn.contains(e.target);
+        if (!inside) closeMenu();
+      });
+    }
+  </script>
+
+  <script>
+    const WEBAPP_URL = "https://script.google.com/macros/s/AKfycbz8UZlYAgHfWmQ5q0fhRTAR8aq4NJOobGn9ec58Z-WIwFMewIYf8freN4rUuSHeIG-0/exec";
+
+    const form = document.getElementById('lead-form');
+    const statusEl = document.getElementById('form-status');
+
+    function setStatus(msg) {
+      if (statusEl) statusEl.textContent = msg;
+    }
+
+    if (form) {
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        setStatus("Enviando tu mensaje...");
+
+        if (!form.consentimiento.checked) {
+          setStatus("Necesitas aceptar la política de privacidad para continuar.");
+          return;
+        }
+
+        // Trampa anti-spam
+        if ((form.company && (form.company.value || "").trim() !== "")) {
+          setStatus("¡Gracias!");
+          form.reset();
+          return;
+        }
+
+        const payload = {
+          nombre: (form.nombre.value || "").trim(),
+          email: (form.email.value || "").trim(),
+          telefono: (form.telefono.value || "").trim(),
+          perfil: form.perfil.value,
+          mensaje: ((form.mensaje.value || "").trim() || null),
+          consentimiento: true,
+          source: "ia.educandoconchispa.com"
+        };
+
+        try {
+          // El envío maestro: mode "no-cors" fuerza al navegador a ignorar redirecciones de seguridad.
+          await fetch(WEBAPP_URL, {
+            method: "POST",
+            mode: "no-cors", 
+            headers: { "Content-Type": "text/plain;charset=utf-8" },
+            body: JSON.stringify(payload)
+          });
+
+          // Al usar no-cors, asumimos el éxito directamente si no hay un error de conexión (caída de internet).
+          setStatus("¡Gracias! Revisa tu email: te llegará el PDF en breve.");
+          form.reset();
+
+        } catch (error) {
+          console.error("Detalle del error:", error);
+          setStatus("Error de conexión. Revisa tu internet o deshabilita el bloqueador de anuncios.");
+        }
+      });
+    }
+  </script>
+</body>
+</html>

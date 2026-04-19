@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html class="dark scroll-smooth" lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>IA para PYMES y FPE · Automatización con Criterio | Educando con chIspA</title>
+  <meta name="description" content="Soluciones de IA y automatización para PYMES y Formación Profesional para el Empleo. Auditoría, Make, Vibe Coding y generación de materiales didácticos. Sin humo.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://educandoconchispa.com/pymes/">
+  <meta name="theme-color" content="#030712">
+
+  <meta property="og:title" content="IA para PYMES y FPE · Automatización con Criterio | Educando con chIspA">
+  <meta property="og:description" content="Auditoría, automatización y Vibe Coding para PYMES. Materiales FPE listos para LMS. José Luis Latorre.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://educandoconchispa.com/pymes/">
+
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- Config ANTES del CDN para evitar "tailwind is not defined" -->
+  <script>
+    window.tailwind = { config: {
+      darkMode: "class",
+      theme: { extend: {
+        colors: {
+          primary: "#3BF6FF", "primary-green": "#4ADE80",
+          "background-dark": "#030712", "surface-dark": "#0B1221", "border-dark": "#1E293B"
+        },
+        fontFamily: { body: ["Inter","sans-serif"], heading: ["Outfit","sans-serif"], mono: ["Fira Code","monospace"] },
+        backgroundImage: {
+          "chispa-gradient": "linear-gradient(to right, #3BF6FF, #4ADE80)",
+          "glow-radial": "radial-gradient(circle at center, rgba(59,246,255,0.12) 0%, rgba(3,7,18,0) 70%)",
+          "glow-green": "radial-gradient(circle at center, rgba(74,222,128,0.10) 0%, rgba(3,7,18,0) 70%)",
+          "tech-grid": "linear-gradient(rgba(30,41,59,0.3) 1px,transparent 1px),linear-gradient(90deg,rgba(30,41,59,0.3) 1px,transparent 1px)"
+        }
+      }}
+    }};
+  </script>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+  <style>
+    body { background-color: #030712; color: #f8fafc; }
+    :focus-visible { outline: 2px solid rgba(59,246,255,0.55); outline-offset: 3px; border-radius: 12px; }
+    .no-scroll { overflow: hidden; }
+    .text-glow { text-shadow: 0 0 20px rgba(59,246,255,0.25); }
+    .service-card:hover { transform: translateY(-3px); }
+    /* Syntax highlight */
+    .kw  { color: #f472b6; }
+    .fn  { color: #86efac; }
+    .str { color: #fde68a; }
+    .cm  { color: #475569; }
+    .num { color: #fb923c; }
+    .kw2 { color: #93c5fd; }
+  </style>
+</head>
+
+<body class="bg-background-dark text-white font-body overflow-x-hidden selection:bg-primary selection:text-background-dark">
+
+  <a href="#contenido" class="sr-only focus:not-sr-only fixed top-4 left-4 z-[100] bg-white text-background-dark px-4 py-2 rounded-xl font-bold shadow-lg">Saltar al contenido</a>
+
+  <!-- HEADER -->
+  <header class="w-full border-b border-white/10 bg-background-dark/80 backdrop-blur-md sticky top-0 z-50">
+    <div class="max-w-[1280px] mx-auto px-6 py-4 flex items-center justify-between">
+
+      <a href="https://educandoconchispa.com" class="flex items-center gap-3 px-4 py-2 rounded-2xl bg-surface-dark/70 backdrop-blur border border-primary/20 shadow-[0_0_18px_rgba(59,246,255,0.10)]">
+        <svg xmlns="http://www.w3.org/2000/svg" width="200" height="50" viewBox="0 0 275 70" class="block">
+          <defs>
+            <linearGradient id="sg" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#22d3ee"/><stop offset="100%" stop-color="#4ade80"/>
+            </linearGradient>
+            <linearGradient id="tg" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#22d3ee"/><stop offset="100%" stop-color="#4ade80"/>
+            </linearGradient>
+            <filter id="gl" x="-100%" y="-100%" width="300%" height="300%">
+              <feGaussianBlur stdDeviation="3.5" result="b"/>
+              <feMerge><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+            <filter id="tgl" x="-50%" y="-50%" width="200%" height="200%">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="1.2" result="b"/>
+              <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+          </defs>
+          <g transform="translate(20,17)" filter="url(#gl)">
+            <circle cx="18" cy="18" r="16" fill="none" stroke="url(#sg)" stroke-width="2.5"/>
+            <path d="M18 9 L19.5 13.5 L24 15 L19.5 16.5 L18 21 L16.5 16.5 L12 15 L16.5 13.5 Z" fill="url(#sg)"/>
+            <circle cx="25" cy="12" r="1.5" fill="#4ade80" opacity=".9"/>
+            <circle cx="11" cy="22" r="1" fill="#22d3ee" opacity=".8"/>
+          </g>
+          <text x="70" y="28" font-family="'Outfit',sans-serif" font-size="11" font-weight="600" letter-spacing="2" fill="#94a3b8">EDUCANDO CON</text>
+          <text y="54" font-family="'Outfit',sans-serif" fill="url(#tg)" filter="url(#tgl)">
+            <tspan x="71" font-weight="600" font-size="24">ch</tspan>
+            <tspan x="96" font-weight="700" font-size="30">I</tspan>
+            <tspan x="104" font-weight="600" font-size="24">sp</tspan>
+            <tspan x="129" font-weight="700" font-size="30">A</tspan>
+          </text>
+        </svg>
+      </a>
+
+      <div class="hidden md:flex items-center gap-8">
+        <nav class="flex gap-8" aria-label="Principal">
+          <a class="text-gray-400 hover:text-primary text-sm font-medium transition-colors" href="https://ia.educandoconchispa.com/#metodologia">IA Educativa</a>
+          <a class="text-primary border-b border-primary text-sm font-medium pb-0.5" href="#">PYMES &amp; FPE</a>
+          <a class="text-gray-400 hover:text-primary text-sm font-medium transition-colors" href="https://ia.educandoconchispa.com/sobre-mi.html">Sobre mí</a>
+        </nav>
+        <a class="flex items-center justify-center rounded-lg h-9 px-5 border border-primary/30 hover:bg-primary/10 hover:border-primary text-primary text-sm font-bold transition-all shadow-[0_0_10px_rgba(59,246,255,0.1)]"
+           href="#contacto">Contacto</a>
+      </div>
+
+      <button id="menuBtn" class="md:hidden text-white rounded-xl p-2 hover:text-primary"
+              aria-label="Menú" aria-controls="mobileMenu" aria-expanded="false">
+        <span class="material-symbols-outlined" style="font-family:'Material Symbols Outlined';">menu</span>
+      </button>
+    </div>
+
+    <div id="mobileMenu" class="md:hidden hidden border-t border-white/10 bg-background-dark/95 backdrop-blur-xl shadow-2xl">
+      <div class="px-6 py-6 flex flex-col gap-5">
+        <a class="text-gray-200 hover:text-primary text-lg font-semibold" href="https://ia.educandoconchispa.com/">IA Educativa</a>
+        <a class="text-primary text-lg font-semibold" href="#">PYMES &amp; FPE</a>
+        <a class="text-gray-200 hover:text-primary text-lg font-semibold" href="https://ia.educandoconchispa.com/sobre-mi.html">Sobre mí</a>
+        <a class="text-gray-200 hover:text-primary text-lg font-semibold" href="#contacto">Contacto</a>
+        <div class="pt-4 mt-2 border-t border-white/10 text-sm text-gray-400 flex flex-col gap-2">
+          <a href="https://educandoconchispa.com" class="hover:text-primary">Inicio global</a>
+          <a href="https://ia.educandoconchispa.com/privacidad.html" class="hover:text-primary">Política de privacidad</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="contenido">
+
+    <!-- HERO -->
+    <section id="top" class="relative pt-20 pb-20 md:pt-28 md:pb-28 px-6 overflow-hidden">
+      <div class="absolute inset-0 z-0 bg-background-dark">
+        <div class="absolute inset-0 bg-tech-grid bg-[length:40px_40px] opacity-10"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-glow-radial opacity-60 pointer-events-none"></div>
+        <div class="absolute bottom-10 right-[10%] w-[300px] h-[300px] bg-glow-green opacity-40 pointer-events-none"></div>
+      </div>
+
+      <div class="relative z-10 max-w-5xl mx-auto text-center flex flex-col items-center gap-7">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary-green/30 bg-surface-dark/50 backdrop-blur-sm shadow-[0_0_15px_rgba(74,222,128,0.15)]">
+          <span class="relative flex h-2 w-2">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-green opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-primary-green"></span>
+          </span>
+          <span class="text-primary-green text-xs font-bold tracking-wide uppercase">Automatización · PYMES · Formación FPE</span>
+        </div>
+
+        <h1 class="text-4xl md:text-6xl lg:text-7xl font-heading font-black text-white leading-[1.08] tracking-tight max-w-5xl">
+          <span class="block text-white/90 font-semibold md:font-bold text-3xl md:text-5xl">
+            El mayor riesgo no es la falta de herramientas.
+          </span>
+          <span class="block mt-3 text-transparent bg-clip-text bg-chispa-gradient text-glow">
+            Es la ineficiencia operativa.
+          </span>
+        </h1>
+
+        <p class="text-gray-300 text-lg md:text-xl font-light leading-relaxed max-w-2xl">
+          Automatización de procesos para PYMES y generación de contenidos para centros de FPE.
+          <span class="text-white font-semibold"> Menos fricción. Más tiempo para lo que importa.</span>
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-5 mt-4 w-full justify-center">
+          <a href="#contacto"
+             class="group flex items-center justify-center gap-3 rounded-full h-14 px-8 bg-chispa-gradient text-background-dark text-base font-bold shadow-[0_0_25px_rgba(59,246,255,0.35)] hover:shadow-[0_0_40px_rgba(59,246,255,0.55)] transition-all transform hover:-translate-y-1">
+            <span class="material-symbols-outlined group-hover:rotate-12 transition-transform" style="font-family:'Material Symbols Outlined';">search_insights</span>
+            Solicitar diagnóstico inicial
+          </a>
+          <a href="#servicios"
+             class="flex items-center justify-center gap-3 rounded-full h-14 px-8 bg-surface-dark/50 backdrop-blur border border-white/20 hover:border-primary hover:bg-surface-dark text-white text-base font-bold transition-all group">
+            <span class="material-symbols-outlined text-primary group-hover:text-white transition-colors" style="font-family:'Material Symbols Outlined';">grid_view</span>
+            Ver servicios
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICIOS -->
+    <section id="servicios" class="py-20 px-6 bg-surface-dark border-t border-white/5">
+      <div class="max-w-[1100px] mx-auto">
+        <div class="text-center mb-14">
+          <h2 class="text-3xl md:text-5xl font-heading font-bold text-white mb-4">
+            Dos contextos.
+            <span class="text-transparent bg-clip-text bg-chispa-gradient">Un método.</span>
+          </h2>
+          <p class="text-gray-400 max-w-2xl mx-auto text-lg">La lógica pedagógica aplicada a procesos empresariales y formativos.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+          <!-- PYMES -->
+          <div class="service-card bg-background-dark border border-white/10 rounded-[2rem] p-8 hover:border-primary/40 hover:shadow-[0_0_30px_rgba(59,246,255,0.05)] transition-all">
+            <div class="flex items-center gap-4 mb-6">
+              <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+                <span class="material-symbols-outlined text-primary text-2xl" style="font-family:'Material Symbols Outlined';">corporate_fare</span>
+              </div>
+              <div>
+                <div class="text-xs font-bold text-primary tracking-widest uppercase mb-0.5">Para empresas</div>
+                <h3 class="text-2xl font-heading font-bold text-white">Soluciones PYMES</h3>
+              </div>
+            </div>
+            <p class="text-gray-400 text-sm leading-relaxed mb-6">
+              La competitividad exige procesos ágiles, no más herramientas sueltas. Ordenamos, priorizamos y automatizamos con sentido.
+            </p>
+
+            <div class="space-y-5">
+              <div class="flex items-start gap-4 p-4 rounded-2xl bg-white/5 border border-white/5 hover:border-primary/20 transition-colors">
+                <div class="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 mt-0.5">
+                  <span class="material-symbols-outlined text-primary text-lg" style="font-family:'Material Symbols Outlined';">trending_up</span>
+                </div>
+                <div>
+                  <div class="text-white font-semibold text-sm">Auditoría y Automatización</div>
+                  <div class="text-gray-500 text-xs mt-1 leading-relaxed">Identificación de cuellos de botella e integración de flujos eficientes (CRM, facturación, atención al cliente con Make/n8n).</div>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4 p-4 rounded-2xl bg-white/5 border border-white/5 hover:border-primary/20 transition-colors">
+                <div class="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 mt-0.5">
+                  <span class="material-symbols-outlined text-primary text-lg" style="font-family:'Material Symbols Outlined';">code</span>
+                </div>
+                <div>
+                  <div class="text-white font-semibold text-sm">Desarrollo Ágil (Vibe Coding)</div>
+                  <div class="text-gray-500 text-xs mt-1 leading-relaxed">Creación de soluciones e integraciones internas personalizadas. Funcionalidad inmediata con enfoque coste-beneficio.</div>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4 p-4 rounded-2xl bg-white/5 border border-white/5 hover:border-primary/20 transition-colors">
+                <div class="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 mt-0.5">
+                  <span class="material-symbols-outlined text-primary text-lg" style="font-family:'Material Symbols Outlined';">smart_toy</span>
+                </div>
+                <div>
+                  <div class="text-white font-semibold text-sm">Agentes e Integraciones IA</div>
+                  <div class="text-gray-500 text-xs mt-1 leading-relaxed">Bots de atención, clasificación de emails, resúmenes automáticos y pipelines de datos conectados a tus sistemas.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- FPE -->
+          <div class="service-card bg-background-dark border border-white/10 rounded-[2rem] p-8 hover:border-primary-green/40 hover:shadow-[0_0_30px_rgba(74,222,128,0.05)] transition-all">
+            <div class="flex items-center gap-4 mb-6">
+              <div class="w-12 h-12 rounded-xl bg-primary-green/10 flex items-center justify-center">
+                <span class="material-symbols-outlined text-primary-green text-2xl" style="font-family:'Material Symbols Outlined';">chalkboard</span>
+              </div>
+              <div>
+                <div class="text-xs font-bold text-primary-green tracking-widest uppercase mb-0.5">Para formación</div>
+                <h3 class="text-2xl font-heading font-bold text-white">Ingeniería FPE</h3>
+              </div>
+            </div>
+            <p class="text-gray-400 text-sm leading-relaxed mb-6">
+              La formación exige materiales precisos y rápidos de actualizar. Liberamos al docente de la carga mecánica.
+            </p>
+
+            <div class="space-y-5">
+              <div class="flex items-start gap-4 p-4 rounded-2xl bg-white/5 border border-white/5 hover:border-primary-green/20 transition-colors">
+                <div class="w-8 h-8 rounded-lg bg-primary-green/10 flex items-center justify-center shrink-0 mt-0.5">
+                  <span class="material-symbols-outlined text-primary-green text-lg" style="font-family:'Material Symbols Outlined';">layers</span>
+                </div>
+                <div>
+                  <div class="text-white font-semibold text-sm">Escalabilidad Didáctica</div>
+                  <div class="text-gray-500 text-xs mt-1 leading-relaxed">Generación estructurada de sílabos, manuales y evaluaciones listos para LMS (Moodle, Canvas). Con taxonomía Bloom integrada.</div>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4 p-4 rounded-2xl bg-white/5 border border-white/5 hover:border-primary-green/20 transition-colors">
+                <div class="w-8 h-8 rounded-lg bg-primary-green/10 flex items-center justify-center shrink-0 mt-0.5">
+                  <span class="material-symbols-outlined text-primary-green text-lg" style="font-family:'Material Symbols Outlined';">rate_review</span>
+                </div>
+                <div>
+                  <div class="text-white font-semibold text-sm">Feedback Automático</div>
+                  <div class="text-gray-500 text-xs mt-1 leading-relaxed">Automatización de rúbricas e IA generativa para feedback individualizado. Validación humana final siempre.</div>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4 p-4 rounded-2xl bg-white/5 border border-white/5 hover:border-primary-green/20 transition-colors">
+                <div class="w-8 h-8 rounded-lg bg-primary-green/10 flex items-center justify-center shrink-0 mt-0.5">
+                  <span class="material-symbols-outlined text-primary-green text-lg" style="font-family:'Material Symbols Outlined';">quiz</span>
+                </div>
+                <div>
+                  <div class="text-white font-semibold text-sm">Generador de Evaluaciones</div>
+                  <div class="text-gray-500 text-xs mt-1 leading-relaxed">A partir del temario: preguntas de opción múltiple, casos prácticos y rúbricas exportables a Word o LMS.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- DEMO TÉCNICA -->
+    <section id="demo" class="py-20 px-6 bg-background-dark border-t border-white/5">
+      <div class="max-w-[1100px] mx-auto">
+        <div class="text-center mb-12">
+          <span class="text-primary text-xs font-bold tracking-widest uppercase block mb-3">Transparencia técnica</span>
+          <h2 class="text-3xl md:text-4xl font-heading font-bold text-white mb-4">
+            Este es el motor.
+            <span class="text-transparent bg-clip-text bg-chispa-gradient"> Horas reducidas a segundos.</span>
+          </h2>
+          <p class="text-gray-400 max-w-2xl mx-auto">
+            Un agente de generación de evaluaciones FPE que extrae el temario, aplica criterio pedagógico y devuelve JSON estructurado listo para exportar al LMS.
+          </p>
+        </div>
+
+        <div class="bg-[#0B1221] rounded-[2rem] overflow-hidden shadow-2xl border border-white/10">
+          <!-- Barra superior tipo editor -->
+          <div class="bg-[#060F1C] px-6 py-4 flex items-center justify-between border-b border-white/10">
+            <div class="flex items-center gap-3">
+              <div class="flex gap-1.5">
+                <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
+                <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+                <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
+              </div>
+              <div class="flex items-center gap-2 ml-2">
+                <i class="bi bi-filetype-py text-blue-400 text-sm"></i>
+                <span class="text-gray-400 font-mono text-sm">agente_fpe.py</span>
+              </div>
+            </div>
+            <span class="text-xs text-gray-600 font-mono">Python · OpenAI SDK</span>
+          </div>
+
+          <!-- Código -->
+          <div class="p-6 md:p-8 overflow-x-auto">
+            <pre class="font-mono text-sm text-gray-300 leading-[1.8]"><span class="kw">import</span> openai
+<span class="kw">import</span> json
+<span class="kw">from</span> document_parser <span class="kw">import</span> extract_text
+
+<span class="kw2">def</span> <span class="fn">generar_evaluacion_fpe</span>(ruta_temario, modulo):
+    <span class="cm"># 1. Extracción — ingesta del manual en bruto</span>
+    contenido = extract_text(ruta_temario)
+
+    <span class="cm"># 2. Prompting con criterio pedagógico y taxonomía Bloom</span>
+    instrucciones = <span class="str">f"""
+    Eres un experto en diseño curricular FPE.
+    Basándote en el contenido, genera 10 preguntas de opción múltiple
+    para evaluar el módulo: {modulo}.
+    Aplica taxonomía de Bloom (nivel aplicación y análisis).
+    Devuelve estrictamente un JSON válido con la estructura:
+    {{ "preguntas": [ {{ "enunciado": ..., "opciones": [...], "correcta": 0 }} ] }}
+    """</span>
+
+    <span class="cm"># 3. Llamada al LLM con temperatura baja para máxima precisión</span>
+    respuesta = openai.ChatCompletion.create(
+        model=<span class="str">"gpt-4-turbo"</span>,
+        messages=[
+            {<span class="str">"role"</span>: <span class="str">"system"</span>, <span class="str">"content"</span>: instrucciones},
+            {<span class="str">"role"</span>: <span class="str">"user"</span>,   <span class="str">"content"</span>: contenido}
+        ],
+        temperature=<span class="num">0.2</span>  <span class="cm"># Baja temperatura → alta consistencia</span>
+    )
+
+    <span class="cm"># 4. Parseo y validación antes de entregar al docente</span>
+    resultado = json.loads(respuesta.choices[<span class="num">0</span>].message.content)
+    <span class="kw">return</span> resultado  <span class="cm"># → Listo para exportar a Moodle/Canvas</span></pre>
+          </div>
+
+          <!-- Resultado simulado -->
+          <div class="border-t border-white/10 px-6 md:px-8 py-5 bg-[#060F1C]">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="w-2 h-2 rounded-full bg-primary-green animate-pulse"></span>
+              <span class="text-xs text-gray-500 font-mono">output — 10 preguntas generadas en 4.3s</span>
+            </div>
+            <div class="font-mono text-xs text-gray-400 leading-relaxed">
+              <span class="text-primary-green">✓</span> Módulo: <span class="text-white">Fundamentos de Redes · UF1</span>
+              <span class="mx-3 text-gray-700">|</span>
+              <span class="text-primary-green">✓</span> Taxonomía Bloom: <span class="text-white">Aplicación + Análisis</span>
+              <span class="mx-3 text-gray-700">|</span>
+              <span class="text-primary-green">✓</span> JSON válido exportable a LMS
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESO DE TRABAJO -->
+    <section class="py-20 px-6 bg-surface-dark border-t border-white/5" id="proceso">
+      <div class="max-w-[1100px] mx-auto">
+        <div class="text-center mb-14">
+          <h2 class="text-3xl md:text-4xl font-heading font-bold text-white mb-4">¿Cómo trabajamos?</h2>
+          <p class="text-gray-400 max-w-2xl mx-auto">Sin postureo. Directo y con foco en resultados desde el día uno.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+          <div class="relative">
+            <div class="bg-background-dark border border-white/10 rounded-[2rem] p-6 text-center hover:border-primary/30 transition-all h-full">
+              <div class="w-12 h-12 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center mx-auto mb-4">
+                <span class="text-primary font-heading font-black text-xl">1</span>
+              </div>
+              <h3 class="font-heading font-bold text-white mb-2">Diagnóstico</h3>
+              <p class="text-gray-500 text-xs leading-relaxed">Analizamos tus procesos actuales y detectamos dónde pierde tiempo tu equipo.</p>
+            </div>
+            <div class="hidden md:block absolute top-1/2 -right-3 w-6 h-px bg-primary/30"></div>
+          </div>
+
+          <div class="relative">
+            <div class="bg-background-dark border border-white/10 rounded-[2rem] p-6 text-center hover:border-primary/30 transition-all h-full">
+              <div class="w-12 h-12 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center mx-auto mb-4">
+                <span class="text-primary font-heading font-black text-xl">2</span>
+              </div>
+              <h3 class="font-heading font-bold text-white mb-2">Priorización</h3>
+              <p class="text-gray-500 text-xs leading-relaxed">Decidimos qué automatizar primero: el mayor impacto con el menor esfuerzo.</p>
+            </div>
+            <div class="hidden md:block absolute top-1/2 -right-3 w-6 h-px bg-primary/30"></div>
+          </div>
+
+          <div class="relative">
+            <div class="bg-background-dark border border-white/10 rounded-[2rem] p-6 text-center hover:border-primary/30 transition-all h-full">
+              <div class="w-12 h-12 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center mx-auto mb-4">
+                <span class="text-primary font-heading font-black text-xl">3</span>
+              </div>
+              <h3 class="font-heading font-bold text-white mb-2">Implementación</h3>
+              <p class="text-gray-500 text-xs leading-relaxed">Construimos los flujos, los probamos contigo y ajustamos hasta que funcionen.</p>
+            </div>
+            <div class="hidden md:block absolute top-1/2 -right-3 w-6 h-px bg-primary/30"></div>
+          </div>
+
+          <div>
+            <div class="bg-background-dark border border-primary/20 rounded-[2rem] p-6 text-center hover:border-primary/50 transition-all h-full shadow-[0_0_20px_rgba(59,246,255,0.05)]">
+              <div class="w-12 h-12 rounded-full bg-chispa-gradient flex items-center justify-center mx-auto mb-4">
+                <span class="text-background-dark font-heading font-black text-xl">✓</span>
+              </div>
+              <h3 class="font-heading font-bold text-white mb-2">Entrega + Formación</h3>
+              <p class="text-gray-500 text-xs leading-relaxed">Tu equipo lo usa de forma autónoma. Sin dependencia del consultor.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PARA QUIÉN -->
+    <section class="py-20 px-6 bg-background-dark border-t border-white/5" id="para-quien">
+      <div class="max-w-[1100px] mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-heading font-bold text-white mb-4">¿Para quién es?</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="p-7 rounded-[2rem] bg-surface-dark border border-white/10 hover:border-primary/30 transition-all">
+            <span class="material-symbols-outlined text-primary text-3xl mb-4 block" style="font-family:'Material Symbols Outlined';">store</span>
+            <h3 class="font-heading font-bold text-white text-lg mb-3">PYMES 2–30 empleados</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">Que pierden tiempo en tareas repetitivas (emails, reportes, facturación) y quieren recuperarlo sin contratar un equipo tech.</p>
+          </div>
+
+          <div class="p-7 rounded-[2rem] bg-surface-dark border border-white/10 hover:border-primary-green/30 transition-all">
+            <span class="material-symbols-outlined text-primary-green text-3xl mb-4 block" style="font-family:'Material Symbols Outlined';">work</span>
+            <h3 class="font-heading font-bold text-white text-lg mb-3">Centros de FPE</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">Que necesitan actualizar sílabos, generar evaluaciones y gestionar feedback de forma eficiente sin depender de plataformas de pago.</p>
+          </div>
+
+          <div class="p-7 rounded-[2rem] bg-surface-dark border border-white/10 hover:border-primary/30 transition-all">
+            <span class="material-symbols-outlined text-primary text-3xl mb-4 block" style="font-family:'Material Symbols Outlined';">person_edit</span>
+            <h3 class="font-heading font-bold text-white text-lg mb-3">Docentes FPE</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">Que diseñan sus propios materiales y quieren multiplicar su productividad sin perder la calidad pedagógica ni el control del proceso.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA + CONTACTO -->
+    <section class="py-20 px-6 bg-surface-dark border-t border-white/5" id="contacto">
+      <div class="max-w-[1100px] mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-5xl font-heading font-bold text-white mb-4">
+            Implementa soluciones que funcionan
+            <span class="text-transparent bg-clip-text bg-chispa-gradient"> desde el primer día</span>
+          </h2>
+          <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+            Cuéntame tu caso. Te respondo personalmente con una primera valoración realista.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+
+          <!-- Form -->
+          <div class="p-8 rounded-[2rem] bg-background-dark border border-white/10">
+            <h3 class="text-xl font-heading font-bold text-white mb-2">Cuéntame tu situación</h3>
+            <p class="text-gray-400 text-sm mb-6">Empresa o centro, objetivo, y si puedes: ¿cuánto tiempo perdéis ahora?</p>
+
+            <form id="pymes-form" class="space-y-4">
+              <input class="w-full rounded-xl bg-white/5 border border-white/10 text-white px-4 py-3 placeholder:text-gray-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
+                     type="text" name="nombre" placeholder="Tu nombre*" required>
+
+              <input class="w-full rounded-xl bg-white/5 border border-white/10 text-white px-4 py-3 placeholder:text-gray-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
+                     type="email" name="email" placeholder="Tu email*" required>
+
+              <select class="w-full rounded-xl border border-white/10 text-white px-4 py-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
+                      style="background-color:#0B1221; color:#fff;" name="tipo" required>
+                <option value="" style="background:#0B1221;">Soy...</option>
+                <option value="pyme" style="background:#0B1221;">PYME / Empresa</option>
+                <option value="fpe" style="background:#0B1221;">Centro de FPE</option>
+                <option value="docente" style="background:#0B1221;">Docente FPE</option>
+                <option value="otro" style="background:#0B1221;">Otro</option>
+              </select>
+
+              <textarea class="w-full rounded-xl bg-white/5 border border-white/10 text-white px-4 py-3 placeholder:text-gray-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 min-h-[110px] resize-none"
+                        name="mensaje"
+                        placeholder="Opcional: ¿qué proceso os quita más tiempo? ¿qué queréis conseguir?"></textarea>
+
+              <input type="text" name="company" tabindex="-1" autocomplete="off" style="display:none">
+
+              <label class="flex items-start gap-3 text-sm text-gray-300 cursor-pointer">
+                <input type="checkbox" name="consentimiento" required class="mt-1 rounded border-white/20 bg-white/10">
+                <span>He leído y acepto la
+                  <a href="https://ia.educandoconchispa.com/privacidad.html" class="text-primary hover:underline">política de privacidad</a>.
+                </span>
+              </label>
+
+              <button type="submit"
+                      class="w-full group flex items-center justify-center gap-2 rounded-xl h-12 bg-chispa-gradient text-background-dark font-bold shadow-[0_0_22px_rgba(59,246,255,0.25)] hover:shadow-[0_0_35px_rgba(59,246,255,0.45)] transition-all">
+                <span class="material-symbols-outlined text-[20px] group-hover:rotate-6 transition-transform" style="font-family:'Material Symbols Outlined';">send</span>
+                Enviar
+              </button>
+              <p id="form-status" class="text-sm text-gray-300 pt-1 text-center"></p>
+              <p class="text-xs text-gray-500 text-center">Respuesta humana. Sin spam. Primera valoración sin compromiso.</p>
+            </form>
+          </div>
+
+          <!-- Expectativas + enlace IA educativa -->
+          <div class="flex flex-col gap-6">
+            <div class="p-7 rounded-[2rem] bg-background-dark border border-white/10 flex-1">
+              <h3 class="font-heading font-bold text-white text-lg mb-4">Qué puedes esperar</h3>
+              <ul class="space-y-3 text-gray-300 text-sm">
+                <li class="flex items-start gap-3">
+                  <span class="material-symbols-outlined text-primary text-base mt-0.5" style="font-family:'Material Symbols Outlined';">check_circle</span>
+                  Respuesta en menos de 24h, no automatizada.
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="material-symbols-outlined text-primary text-base mt-0.5" style="font-family:'Material Symbols Outlined';">check_circle</span>
+                  Primera valoración orientativa para detectar prioridades.
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="material-symbols-outlined text-primary text-base mt-0.5" style="font-family:'Material Symbols Outlined';">check_circle</span>
+                  Propuesta realista: sin promesas de ROI infladas.
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="material-symbols-outlined text-primary text-base mt-0.5" style="font-family:'Material Symbols Outlined';">check_circle</span>
+                  Entrega con formación: tu equipo queda autónomo.
+                </li>
+              </ul>
+            </div>
+
+            <!-- Cross-link IA educativa -->
+            <div class="p-7 rounded-[2rem] bg-background-dark border border-primary/15 hover:border-primary/35 transition-all group">
+              <div class="flex items-center gap-3 mb-3">
+                <span class="material-symbols-outlined text-primary" style="font-family:'Material Symbols Outlined';">school</span>
+                <span class="text-xs font-bold text-primary tracking-widest uppercase">También trabajamos con centros educativos</span>
+              </div>
+              <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                ¿Eres un centro escolar o docente? El mismo criterio, aplicado al aula.
+              </p>
+              <a href="https://ia.educandoconchispa.com/"
+                 class="inline-flex items-center gap-2 text-primary text-sm font-bold hover:gap-3 transition-all">
+                Ver IA Educativa
+                <span class="material-symbols-outlined text-lg" style="font-family:'Material Symbols Outlined';">arrow_forward</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-white/10 py-10 px-6 text-center text-gray-400 bg-background-dark">
+    <div class="max-w-[1100px] mx-auto space-y-3">
+      <div class="text-sm">© <span id="year"></span> Educando con chIspA · IA y Automatización para PYMES y FPE</div>
+      <div class="text-xs flex flex-wrap justify-center gap-x-3 gap-y-2">
+        <a href="https://educandoconchispa.com" class="hover:text-primary">Inicio global</a>
+        <span class="text-gray-600">·</span>
+        <a href="https://ia.educandoconchispa.com/" class="hover:text-primary">IA Educativa</a>
+        <span class="text-gray-600">·</span>
+        <a href="https://ia.educandoconchispa.com/sobre-mi.html" class="hover:text-primary">Sobre mí</a>
+        <span class="text-gray-600">·</span>
+        <a href="https://ia.educandoconchispa.com/privacidad.html" class="hover:text-primary">Política de privacidad</a>
+        <span class="text-gray-600">·</span>
+        <a href="#contacto" class="hover:text-primary">Contacto</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const body = document.body;
+
+    function openMenu()  { mobileMenu.classList.remove('hidden'); menuBtn.setAttribute('aria-expanded','true');  body.classList.add('no-scroll');    }
+    function closeMenu() { mobileMenu.classList.add('hidden');    menuBtn.setAttribute('aria-expanded','false'); body.classList.remove('no-scroll'); }
+
+    if (menuBtn && mobileMenu) {
+      menuBtn.addEventListener('click', () => mobileMenu.classList.contains('hidden') ? openMenu() : closeMenu());
+      mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+      document.addEventListener('keydown', e => { if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden')) closeMenu(); });
+      document.addEventListener('click', e => {
+        if (mobileMenu.classList.contains('hidden')) return;
+        if (!mobileMenu.contains(e.target) && !menuBtn.contains(e.target)) closeMenu();
+      });
+    }
+
+    // Form (reutiliza el mismo Google Apps Script que ia.educandoconchispa.com o pon el tuyo)
+    const WEBAPP_URL = "https://script.google.com/macros/s/AKfycbz8UZlYAgHfWmQ5q0fhRTAR8aq4NJOobGn9ec58Z-WIwFMewIYf8freN4rUuSHeIG-0/exec";
+    const form = document.getElementById('pymes-form');
+    const statusEl = document.getElementById('form-status');
+
+    if (form) {
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        if (!form.consentimiento.checked) { statusEl.textContent = "Acepta la política de privacidad para continuar."; return; }
+        if ((form.company?.value || "").trim() !== "") { statusEl.textContent = "¡Gracias!"; form.reset(); return; }
+        statusEl.textContent = "Enviando...";
+        const payload = {
+          nombre: form.nombre.value.trim(),
+          email: form.email.value.trim(),
+          tipo: form.tipo.value,
+          mensaje: form.mensaje.value.trim() || null,
+          consentimiento: true,
+          source: "educandoconchispa.com/pymes"
+        };
+        try {
+          await fetch(WEBAPP_URL, { method: "POST", mode: "no-cors", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(payload) });
+          statusEl.textContent = "¡Mensaje enviado! Te respondo en menos de 24h.";
+          form.reset();
+        } catch {
+          statusEl.textContent = "Error de conexión. Inténtalo de nuevo o escríbeme directamente.";
+        }
+      });
+    }
+  </script>
+</body>
+</html>
