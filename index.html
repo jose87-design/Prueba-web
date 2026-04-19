@@ -4,14 +4,14 @@
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 
-  <title>Educando con chIspA | Formación, IA y automatización con criterio</title>
-  <meta name="description" content="Formación, IA y automatización con criterio para educación, pymes y proyectos aplicados al territorio. Liderado por José Luis Latorre.">
+  <title>Educando con chIspA | IA, formación y automatización con criterio</title>
+  <meta name="description" content="IA, formación y automatización con criterio para centros educativos, pymes y proyectos vinculados al territorio. Soluciones prácticas, implantación real y acompañamiento con experiencia.">
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="https://educandoconchispa.com/">
   <meta name="theme-color" content="#020617">
 
-  <meta property="og:title" content="Educando con chIspA | Formación, IA y automatización con criterio">
-  <meta property="og:description" content="Formación, IA y automatización con criterio para educación, pymes y proyectos aplicados al territorio. Liderado por José Luis Latorre.">
+  <meta property="og:title" content="Educando con chIspA | IA, formación y automatización con criterio">
+  <meta property="og:description" content="Soluciones prácticas de IA, formación y automatización para educación, pymes y proyectos aplicados al territorio.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://educandoconchispa.com/">
 
@@ -19,7 +19,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
@@ -41,13 +41,15 @@
           },
           backgroundImage: {
             "chispa-gradient": "linear-gradient(135deg, #22d3ee 0%, #4ade80 100%)",
-            "chispa-line": "linear-gradient(90deg, rgba(34,211,238,.8), rgba(74,222,128,.8))",
-            "hero-mesh": "radial-gradient(circle at 20% 20%, rgba(34,211,238,.16), transparent 28%), radial-gradient(circle at 80% 18%, rgba(74,222,128,.14), transparent 30%), radial-gradient(circle at 50% 75%, rgba(59,246,255,.12), transparent 30%)"
+            "hero-mesh": "radial-gradient(circle at 18% 18%, rgba(34,211,238,.18), transparent 25%), radial-gradient(circle at 82% 18%, rgba(74,222,128,.16), transparent 26%), radial-gradient(circle at 50% 75%, rgba(59,246,255,.12), transparent 28%)",
+            "card-cyan": "linear-gradient(180deg, rgba(34,211,238,.12), rgba(255,255,255,.035))",
+            "card-green": "linear-gradient(180deg, rgba(74,222,128,.12), rgba(255,255,255,.035))",
+            "card-white": "linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03))"
           },
           boxShadow: {
             'glow': '0 0 30px rgba(34, 211, 238, 0.15)',
-            'cyan-xl': '0 0 50px rgba(34,211,238,.18)',
-            'neon-xl': '0 0 50px rgba(74,222,128,.14)'
+            'cyan-xl': '0 0 55px rgba(34,211,238,.18)',
+            'neon-xl': '0 0 55px rgba(74,222,128,.16)'
           }
         },
       },
@@ -65,27 +67,23 @@
       background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
       backdrop-filter: blur(12px);
     }
+    .hero-grid {
+      background-image: linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
+      background-size: 36px 36px;
+    }
   </style>
 </head>
 
 <body class="antialiased selection:bg-[#22d3ee] selection:text-slate-900 flex flex-col min-h-screen">
-  <a href="#contenido" class="sr-only focus:not-sr-only fixed top-4 left-4 z-[100] bg-white text-slate-900 px-4 py-2 rounded-xl font-bold shadow-lg">
-    Saltar al contenido
-  </a>
+  <a href="#contenido" class="sr-only focus:not-sr-only fixed top-4 left-4 z-[100] bg-white text-slate-900 px-4 py-2 rounded-xl font-bold shadow-lg">Saltar al contenido</a>
 
   <header id="siteHeader" class="fixed w-full z-50 bg-[#020617]/85 backdrop-blur-md border-b border-white/5 transition-all duration-300">
     <div class="max-w-[1280px] mx-auto px-6 py-3 flex items-center justify-between">
       <a href="#top" class="flex items-center group" aria-label="Educando con chIspA - Inicio">
         <svg xmlns="http://www.w3.org/2000/svg" width="200" height="50" viewBox="0 0 275 70" class="block w-auto h-10 md:h-12">
           <defs>
-            <linearGradient id="gradLogo" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stop-color="#22d3ee"/>
-              <stop offset="100%" stop-color="#4ade80"/>
-            </linearGradient>
-            <filter id="glowLogo" x="-50%" y="-50%" width="200%" height="200%">
-              <feGaussianBlur in="SourceGraphic" stdDeviation="1.2" result="blur"/>
-              <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-            </filter>
+            <linearGradient id="gradLogo" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#22d3ee"/><stop offset="100%" stop-color="#4ade80"/></linearGradient>
+            <filter id="glowLogo" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur in="SourceGraphic" stdDeviation="1.2" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
           </defs>
           <g transform="translate(20, 17)">
             <circle cx="18" cy="18" r="16" fill="none" stroke="url(#gradLogo)" stroke-width="2.5"/>
@@ -94,12 +92,7 @@
             <circle cx="11" cy="22" r="1" fill="#22d3ee"/>
           </g>
           <text x="70" y="28" font-family="'Outfit', sans-serif" font-size="11" font-weight="600" letter-spacing="2" fill="#94a3b8">EDUCANDO CON</text>
-          <text y="54" font-family="'Outfit', sans-serif" fill="url(#gradLogo)" filter="url(#glowLogo)">
-            <tspan x="71" font-weight="600" font-size="24">ch</tspan>
-            <tspan x="96" font-weight="700" font-size="30">I</tspan>
-            <tspan x="104" font-weight="600" font-size="24">sp</tspan>
-            <tspan x="129" font-weight="700" font-size="30">A</tspan>
-          </text>
+          <text y="54" font-family="'Outfit', sans-serif" fill="url(#gradLogo)" filter="url(#glowLogo)"><tspan x="71" font-weight="600" font-size="24">ch</tspan><tspan x="96" font-weight="700" font-size="30">I</tspan><tspan x="104" font-weight="600" font-size="24">sp</tspan><tspan x="129" font-weight="700" font-size="30">A</tspan></text>
         </svg>
       </a>
 
@@ -108,18 +101,13 @@
           <a class="text-slate-400 hover:text-cyan text-sm font-medium transition-colors" href="#lineas">Líneas</a>
           <a class="text-slate-400 hover:text-cyan text-sm font-medium transition-colors" href="https://ia.educandoconchispa.com/">IA Educativa</a>
           <a class="text-slate-400 hover:text-cyan text-sm font-medium transition-colors" href="/pymes/">PYMES &amp; FPE</a>
-          <a class="text-slate-400 hover:text-cyan text-sm font-medium transition-colors" href="#credenciales">Credenciales</a>
+          <a class="text-slate-400 hover:text-cyan text-sm font-medium transition-colors" href="#credenciales">Formaciones</a>
           <a class="text-slate-400 hover:text-cyan text-sm font-medium transition-colors" href="#autor">Sobre mí</a>
         </nav>
-        <a class="flex items-center justify-center rounded-full h-10 px-6 bg-white/5 border border-white/10 hover:border-cyan hover:bg-white/10 text-white text-sm font-bold transition-all shadow-lg hover:shadow-glow"
-           href="#lineas">
-           Ver líneas de trabajo
-        </a>
+        <a class="flex items-center justify-center rounded-full h-10 px-6 bg-white/5 border border-white/10 hover:border-cyan hover:bg-white/10 text-white text-sm font-bold transition-all shadow-lg hover:shadow-glow" href="#lineas">Ver líneas de trabajo</a>
       </div>
 
-      <button id="menuBtn" class="md:hidden inline-flex items-center justify-center p-2 text-white hover:text-cyan rounded-xl" aria-label="Menú" aria-controls="mobileMenu" aria-expanded="false">
-        <span class="material-symbols-outlined text-3xl">menu</span>
-      </button>
+      <button id="menuBtn" class="md:hidden inline-flex items-center justify-center p-2 text-white hover:text-cyan rounded-xl" aria-label="Menú" aria-controls="mobileMenu" aria-expanded="false"><span class="material-symbols-outlined text-3xl">menu</span></button>
     </div>
 
     <div id="mobileMenu" class="md:hidden hidden border-t border-white/5 bg-[#020617]/95 backdrop-blur-xl absolute w-full left-0 top-full shadow-2xl h-[calc(100vh-64px)] overflow-auto">
@@ -127,13 +115,10 @@
         <a class="text-slate-200 hover:text-cyan text-xl font-medium" href="#lineas">Líneas</a>
         <a class="text-slate-200 hover:text-cyan text-xl font-medium" href="https://ia.educandoconchispa.com/">IA Educativa</a>
         <a class="text-slate-200 hover:text-cyan text-xl font-medium" href="/pymes/">PYMES &amp; FPE</a>
-        <a class="text-slate-200 hover:text-cyan text-xl font-medium" href="#credenciales">Credenciales</a>
+        <a class="text-slate-200 hover:text-cyan text-xl font-medium" href="#credenciales">Formaciones</a>
         <a class="text-slate-200 hover:text-cyan text-xl font-medium" href="#autor">Sobre mí</a>
         <hr class="border-white/10 my-2">
-        <a class="w-full inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full bg-chispa-gradient text-slate-900 font-bold text-lg shadow-[0_0_20px_rgba(34,211,238,0.25)]" href="#lineas">
-          <span class="material-symbols-outlined">apps</span>
-          Ver líneas de trabajo
-        </a>
+        <a class="w-full inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full bg-chispa-gradient text-slate-900 font-black text-lg shadow-[0_0_20px_rgba(34,211,238,0.25)]" href="#lineas"><span class="material-symbols-outlined">apps</span>Ver líneas de trabajo</a>
         <div class="pt-6 mt-2 border-t border-white/10 text-sm text-slate-400 flex flex-col gap-2">
           <a href="#autor" class="hover:text-cyan">Sobre mí</a>
           <a href="https://ia.educandoconchispa.com/privacidad.html" class="hover:text-cyan">Política de privacidad</a>
@@ -144,30 +129,33 @@
 
   <main id="contenido" class="flex-1">
     <section id="top" class="relative pt-36 pb-20 md:pt-48 md:pb-28 px-6 overflow-hidden">
-      <div class="absolute inset-0 bg-hero-mesh opacity-100 pointer-events-none"></div>
+      <div class="absolute inset-0 bg-hero-mesh pointer-events-none"></div>
+      <div class="absolute inset-0 hero-grid opacity-[.22] pointer-events-none"></div>
       <div class="absolute -top-24 left-1/2 -translate-x-1/2 w-[980px] h-[980px] rounded-full border border-cyan/10 opacity-20"></div>
       <div class="absolute top-20 right-[8%] w-72 h-72 rounded-full bg-cyan/10 blur-3xl"></div>
       <div class="absolute bottom-0 left-[8%] w-72 h-72 rounded-full bg-neon/10 blur-3xl"></div>
 
       <div class="max-w-6xl mx-auto relative z-10">
-        <div class="text-center max-w-4xl mx-auto">
+        <div class="text-center max-w-5xl mx-auto">
           <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-cyan/30 bg-cyan/5 mb-8 backdrop-blur-sm">
             <span class="w-1.5 h-1.5 rounded-full bg-cyan animate-pulse shadow-[0_0_8px_#22d3ee]"></span>
-            <span class="text-cyan text-xs font-bold tracking-widest uppercase">Formación · IA · Automatización con criterio</span>
+            <span class="text-cyan text-xs font-bold tracking-widest uppercase">IA · formación · automatización aplicadas</span>
           </div>
 
-          <h1 class="text-4xl md:text-6xl lg:text-7xl font-heading font-black text-white leading-[1.04] mb-6">
-            Tecnología útil.<br/>
-            <span class="text-transparent bg-clip-text bg-chispa-gradient">Criterio humano.</span>
-            <span class="block text-slate-400 mt-2 text-3xl md:text-5xl">Aplicación real.</span>
+          <h1 class="text-4xl md:text-6xl lg:text-7xl font-heading font-black text-white leading-[1.02] mb-6">
+            Menos ruido tecnológico.<br/>
+            <span class="text-transparent bg-clip-text bg-chispa-gradient">Más criterio, claridad y tiempo útil.</span>
           </h1>
 
-          <p class="text-lg md:text-xl text-slate-300 leading-relaxed mb-10 max-w-3xl mx-auto font-light">
-            Educando con chIspA conecta formación, consultoría, automatización y experiencias aplicadas para educación, pymes y proyectos vinculados al territorio.
+          <p class="text-lg md:text-xl text-slate-300 leading-relaxed mb-6 max-w-4xl mx-auto font-light">
+            Ayudo a centros educativos, pymes y proyectos aplicados al territorio a integrar tecnología con sentido: formación práctica, automatización de procesos y soluciones pensadas para contextos reales.
+          </p>
+          <p class="text-base md:text-lg text-slate-400 leading-relaxed mb-10 max-w-3xl mx-auto">
+            <span class="text-white font-semibold">La tecnología ayuda.</span> La chispa de la experiencia la pones tú.
           </p>
 
           <div class="flex flex-col sm:flex-row gap-5 justify-center items-center mb-12">
-            <a href="#lineas" class="group inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-chispa-gradient text-slate-900 font-black text-lg shadow-cyan-xl hover:shadow-[0_0_60px_rgba(34,211,238,.28)] transition-all transform hover:-translate-y-1 w-full sm:w-auto">
+            <a href="#lineas" class="group inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-chispa-gradient text-slate-900 font-black text-lg shadow-neon-xl hover:shadow-[0_0_60px_rgba(74,222,128,.24)] transition-all transform hover:-translate-y-1 w-full sm:w-auto">
               <span class="material-symbols-outlined group-hover:rotate-12 transition-transform">rocket_launch</span>
               Descubrir soluciones
             </a>
@@ -179,17 +167,17 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-5xl mx-auto">
-          <div class="glass-card rounded-[2rem] border border-cyan/15 p-6 shadow-glow">
-            <div class="text-xs uppercase tracking-[.2em] text-cyan font-bold mb-3">IA Educativa</div>
-            <p class="text-slate-300 text-sm leading-relaxed">Diagnóstico CHISPA, formación modular y acompañamiento para docentes y centros.</p>
+          <div class="glass-card rounded-[2rem] p-6 shadow-glow">
+            <div class="text-xs uppercase tracking-[.2em] text-cyan font-bold mb-3">Qué resuelvo</div>
+            <p class="text-slate-300 text-sm leading-relaxed">Desorden digital, decisiones sin criterio, burocracia repetitiva y falta de tiempo para lo importante.</p>
           </div>
-          <div class="glass-card rounded-[2rem] border border-neon/15 p-6 shadow-neon-xl">
-            <div class="text-xs uppercase tracking-[.2em] text-neon font-bold mb-3">PYMES &amp; FPE</div>
-            <p class="text-slate-300 text-sm leading-relaxed">Automatización, procesos, materiales y soluciones aplicadas a empresa y formación para el empleo.</p>
+          <div class="glass-card rounded-[2rem] p-6 shadow-neon-xl">
+            <div class="text-xs uppercase tracking-[.2em] text-neon font-bold mb-3">Cómo trabajo</div>
+            <p class="text-slate-300 text-sm leading-relaxed">Diagnóstico, formación aplicada, implantación realista y automatización con foco práctico.</p>
           </div>
-          <div class="glass-card rounded-[2rem] border border-white/10 p-6">
-            <div class="text-xs uppercase tracking-[.2em] text-white font-bold mb-3">Experiencias</div>
-            <p class="text-slate-300 text-sm leading-relaxed">Gamificación, propuestas territoriales y diseño de experiencias con identidad local.</p>
+          <div class="glass-card rounded-[2rem] p-6">
+            <div class="text-xs uppercase tracking-[.2em] text-white font-bold mb-3">Qué buscas aquí</div>
+            <p class="text-slate-300 text-sm leading-relaxed">Una puerta clara para educación, pymes y proyectos experienciales vinculados al territorio.</p>
           </div>
         </div>
       </div>
@@ -200,35 +188,50 @@
       <div class="max-w-[1200px] mx-auto relative z-10">
         <div class="text-center mb-12">
           <h2 class="text-3xl md:text-5xl font-heading font-black text-white mb-4">Tres líneas. Una misma lógica.</h2>
-          <p class="text-slate-400 max-w-3xl mx-auto text-lg">Trabajo donde la tecnología debe aportar valor real: aula, negocio y territorio.</p>
+          <p class="text-slate-400 max-w-3xl mx-auto text-lg">Tecnología con criterio para mejorar decisiones, procesos y experiencias.</p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <a href="https://ia.educandoconchispa.com/" class="group rounded-[2rem] border border-cyan/20 bg-[linear-gradient(180deg,rgba(34,211,238,.08),rgba(255,255,255,.03))] backdrop-blur p-8 hover:border-cyan/50 hover:shadow-glow transition-all">
-            <div class="w-12 h-12 rounded-xl bg-cyan/10 flex items-center justify-center text-cyan mb-5">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+          <a href="https://ia.educandoconchispa.com/" class="group rounded-[2rem] bg-card-cyan backdrop-blur p-8 hover:shadow-glow transition-all">
+            <div class="w-14 h-14 rounded-2xl bg-cyan/12 flex items-center justify-center text-cyan mb-5 shadow-[0_0_20px_rgba(34,211,238,.14)]">
               <span class="material-symbols-outlined">school</span>
             </div>
-            <h3 class="text-2xl font-heading font-bold text-white mb-3">IA Educativa</h3>
-            <p class="text-slate-300 text-sm leading-relaxed mb-5">Diagnóstico CHISPA, formación modular y acompañamiento para docentes y centros educativos.</p>
+            <h3 class="text-2xl font-heading font-bold text-white mb-3">Formación e IA para centros educativos</h3>
+            <p class="text-slate-300 text-sm leading-relaxed mb-5">Diagnóstico, criterios, formación docente y acompañamiento para integrar IA con sentido pedagógico.</p>
             <span class="inline-flex items-center gap-2 text-cyan font-bold">Entrar <span class="material-symbols-outlined text-base">arrow_forward</span></span>
           </a>
 
-          <a href="/pymes/" class="group rounded-[2rem] border border-neon/20 bg-[linear-gradient(180deg,rgba(74,222,128,.08),rgba(255,255,255,.03))] backdrop-blur p-8 hover:border-neon/50 hover:shadow-[0_0_30px_rgba(74,222,128,0.15)] transition-all">
-            <div class="w-12 h-12 rounded-xl bg-neon/10 flex items-center justify-center text-neon mb-5">
+          <a href="/pymes/" class="group rounded-[2rem] bg-card-green backdrop-blur p-8 hover:shadow-[0_0_30px_rgba(74,222,128,0.15)] transition-all">
+            <div class="w-14 h-14 rounded-2xl bg-neon/12 flex items-center justify-center text-neon mb-5 shadow-[0_0_20px_rgba(74,222,128,.12)]">
               <span class="material-symbols-outlined">corporate_fare</span>
             </div>
-            <h3 class="text-2xl font-heading font-bold text-white mb-3">PYMES &amp; FPE</h3>
-            <p class="text-slate-300 text-sm leading-relaxed mb-5">Automatización, procesos, materiales y soluciones aplicadas para empresas y formación profesional para el empleo.</p>
+            <h3 class="text-2xl font-heading font-bold text-white mb-3">IA y automatización para pymes y FPE</h3>
+            <p class="text-slate-300 text-sm leading-relaxed mb-5">Procesos, productividad, materiales y soluciones prácticas para empresa y formación profesional para el empleo.</p>
             <span class="inline-flex items-center gap-2 text-neon font-bold">Entrar <span class="material-symbols-outlined text-base">arrow_forward</span></span>
           </a>
 
-          <div class="group rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.03))] backdrop-blur p-8 hover:border-cyan/30 transition-all">
-            <div class="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center text-white mb-5">
+          <div class="group rounded-[2rem] bg-card-white backdrop-blur p-8 transition-all">
+            <div class="w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center text-white mb-5">
               <span class="material-symbols-outlined">map</span>
             </div>
-            <h3 class="text-2xl font-heading font-bold text-white mb-3">Experiencias y gamificación</h3>
-            <p class="text-slate-300 text-sm leading-relaxed mb-5">Diseño de propuestas para territorio, turismo, eventos y aprendizaje experiencial con identidad local.</p>
+            <h3 class="text-2xl font-heading font-bold text-white mb-3">Gamificación y experiencias para territorio y eventos</h3>
+            <p class="text-slate-300 text-sm leading-relaxed mb-5">Propuestas para turismo, dinamización local, recorridos interactivos y aprendizaje experiencial con identidad propia.</p>
             <span class="inline-flex items-center gap-2 text-white font-bold">Disponible bajo proyecto</span>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="glass-card rounded-[2rem] p-6">
+            <div class="text-cyan font-bold mb-2">Educación</div>
+            <p class="text-slate-400 text-sm leading-relaxed">Para centros que quieren implantar IA con criterio, no solo probar herramientas. Diagnóstico, formación, protocolos y acompañamiento.</p>
+          </div>
+          <div class="glass-card rounded-[2rem] p-6">
+            <div class="text-neon font-bold mb-2">Empresa y FPE</div>
+            <p class="text-slate-400 text-sm leading-relaxed">Para negocios y entidades que necesitan ordenar procesos, ahorrar tiempo y convertir la tecnología en utilidad concreta.</p>
+          </div>
+          <div class="glass-card rounded-[2rem] p-6">
+            <div class="text-white font-bold mb-2">Territorio</div>
+            <p class="text-slate-400 text-sm leading-relaxed">Para proyectos que buscan atraer, implicar o enseñar de otra forma mediante experiencias, narrativa y participación.</p>
           </div>
         </div>
       </div>
@@ -236,29 +239,29 @@
 
     <section id="credenciales" class="border-y border-white/5 bg-surface/50 py-14 overflow-hidden">
       <div class="max-w-[1200px] mx-auto px-6">
-        <p class="text-center text-xs font-bold tracking-widest uppercase text-slate-500 mb-8">Experiencia real, formación oficial y especialización aplicada</p>
+        <p class="text-center text-xs font-bold tracking-widest uppercase text-slate-500 mb-8">Formaciones que nos avalan</p>
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 max-w-6xl mx-auto">
-          <div class="flex flex-col items-center justify-center gap-2 p-4 rounded-2xl bg-[linear-gradient(180deg,rgba(34,211,238,.08),rgba(255,255,255,.03))] border border-cyan/20 text-center">
+          <div class="flex flex-col items-center justify-center gap-2 p-4 rounded-2xl bg-card-cyan text-center">
             <span class="material-symbols-outlined text-cyan text-2xl">school</span>
             <div><div class="text-xs font-bold text-white">SSCE0110</div><div class="text-[10px] text-slate-400">Habilitación FPE</div></div>
           </div>
-          <div class="flex flex-col items-center justify-center gap-2 p-4 rounded-2xl bg-[linear-gradient(180deg,rgba(74,222,128,.08),rgba(255,255,255,.03))] border border-neon/20 text-center">
+          <div class="flex flex-col items-center justify-center gap-2 p-4 rounded-2xl bg-card-green text-center">
             <span class="material-symbols-outlined text-neon text-2xl">storefront</span>
-            <div><div class="text-xs font-bold text-white">IA aplicada</div><div class="text-[10px] text-slate-400">en Pymes</div></div>
+            <div><div class="text-xs font-bold text-white">IA aplicada en Pymes</div><div class="text-[10px] text-slate-400">MOBA · 150 h · 15 ECTS</div></div>
           </div>
-          <div class="flex flex-col items-center justify-center gap-2 p-4 rounded-2xl bg-white/5 border border-white/10 text-center">
+          <div class="flex flex-col items-center justify-center gap-2 p-4 rounded-2xl bg-card-white text-center">
             <span class="material-symbols-outlined text-white text-2xl">business_center</span>
-            <div><div class="text-xs font-bold text-white">Generación Digital</div><div class="text-[10px] text-slate-400">Pymes · 15 ECTS</div></div>
+            <div><div class="text-xs font-bold text-white">Generación Digital</div><div class="text-[10px] text-slate-400">USJ · 150 h · 15 ECTS</div></div>
           </div>
-          <div class="flex flex-col items-center justify-center gap-2 p-4 rounded-2xl bg-white/5 border border-white/10 text-center">
+          <div class="flex flex-col items-center justify-center gap-2 p-4 rounded-2xl bg-card-white text-center">
             <i class="bi bi-google text-2xl text-white"></i>
-            <div><div class="text-xs font-bold text-white">Certified Educator</div><div class="text-[10px] text-slate-400">Google</div></div>
+            <div><div class="text-xs font-bold text-white">Certified Educator</div><div class="text-[10px] text-slate-400">Google for Education</div></div>
           </div>
-          <div class="flex flex-col items-center justify-center gap-2 p-4 rounded-2xl bg-white/5 border border-white/10 text-center">
+          <div class="flex flex-col items-center justify-center gap-2 p-4 rounded-2xl bg-card-white text-center">
             <span class="material-symbols-outlined text-cyan text-2xl">badge</span>
-            <div><div class="text-xs font-bold text-white">Chief AI Officer</div><div class="text-[10px] text-slate-400">Exec. Program</div></div>
+            <div><div class="text-xs font-bold text-white">Chief AI Officer</div><div class="text-[10px] text-slate-400">Executive Program</div></div>
           </div>
-          <div class="flex flex-col items-center justify-center gap-2 p-4 rounded-2xl bg-white/5 border border-white/10 text-center">
+          <div class="flex flex-col items-center justify-center gap-2 p-4 rounded-2xl bg-card-white text-center">
             <span class="material-symbols-outlined text-neon text-2xl">precision_manufacturing</span>
             <div><div class="text-xs font-bold text-white">Make Foundation</div><div class="text-[10px] text-slate-400">Automation</div></div>
           </div>
@@ -269,18 +272,13 @@
     <section id="autor" class="py-24 bg-gradient-to-b from-dark to-surface border-t border-white/5 relative overflow-hidden">
       <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-cyan/5 rounded-full blur-[100px] pointer-events-none"></div>
       <div class="max-w-4xl mx-auto px-6 relative z-10">
-        <div class="glass-card border border-white/10 rounded-[3rem] p-10 md:p-14 text-center">
+        <div class="glass-card rounded-[3rem] p-10 md:p-14 text-center">
           <div class="relative w-40 h-40 mx-auto mb-8 group">
             <div class="absolute inset-0 bg-chispa-gradient rounded-full blur-[4px] opacity-50 group-hover:opacity-100 transition-opacity duration-500"></div>
             <img src="jose-latorre.jpg" alt="José Luis Latorre" class="relative w-full h-full rounded-full object-cover border-4 border-dark shadow-2xl" onerror="this.src='https://ui-avatars.com/api/?name=JL&background=020617&color=fff&size=160'" loading="lazy" />
           </div>
-          <h2 class="text-2xl md:text-3xl font-heading font-bold text-white mb-6 leading-snug">
-            Tecnología con criterio.<br class="hidden md:block"/>
-            Formación con base real.
-          </h2>
-          <p class="text-slate-400 text-sm mb-10 max-w-2xl mx-auto">
-            Docente, formador y consultor con experiencia en aula, FPE, automatización y diseño de experiencias aplicadas.
-          </p>
+          <h2 class="text-2xl md:text-3xl font-heading font-bold text-white mb-6 leading-snug">Tecnología con criterio.<br class="hidden md:block"/>Experiencia aplicada.</h2>
+          <p class="text-slate-400 text-sm mb-10 max-w-2xl mx-auto">Docente, formador y consultor con experiencia en aula, FPE, automatización y diseño de experiencias aplicadas.</p>
           <div class="flex flex-col sm:flex-row gap-4 justify-center">
             <a href="https://ia.educandoconchispa.com/sobre-mi.html" class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-chispa-gradient text-slate-900 font-black text-lg shadow-cyan-xl hover:shadow-[0_0_35px_rgba(34,211,238,0.35)] transition-all transform hover:-translate-y-1">
               Ver perfil completo
