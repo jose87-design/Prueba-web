@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Experiencias educativas en Tarazona | Seminario + Tarazona Monumental</title>
+  <meta name="description" content="Visitas, talleres, convivencia, manutención y alojamiento en Tarazona, con programas adaptados desde Infantil hasta Bachillerato.">
+  <meta name="robots" content="index,follow">
+  <meta name="theme-color" content="#17324d">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #17324d;
+      --ink-soft: #38536a;
+      --paper: #fffaf1;
+      --cream: #f4ead8;
+      --white: #ffffff;
+      --gold: #d69d3a;
+      --terracotta: #b64b32;
+      --green: #55735e;
+      --line: rgba(23, 50, 77, .14);
+      --shadow: 0 24px 70px rgba(23, 50, 77, .13);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: "DM Sans", sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; }
+    img { max-width: 100%; }
+    :focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; border-radius: 6px; }
+    .skip {
+      position: fixed; left: 1rem; top: -5rem; z-index: 100;
+      background: var(--white); padding: .75rem 1rem; border-radius: .7rem;
+    }
+    .skip:focus { top: 1rem; }
+    .wrap { width: min(1160px, calc(100% - 2.5rem)); margin-inline: auto; }
+    .header {
+      position: sticky; top: 0; z-index: 30;
+      background: rgba(255, 250, 241, .93);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(14px);
+    }
+    .nav { min-height: 74px; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; }
+    .brand { text-decoration: none; display: flex; align-items: center; gap: .75rem; font-weight: 800; letter-spacing: -.02em; }
+    .brand-mark {
+      width: 42px; height: 42px; display: grid; place-items: center; border-radius: 50%;
+      background: var(--ink); color: var(--paper); font-family: "Playfair Display", serif;
+      box-shadow: inset 0 0 0 3px rgba(255,255,255,.14);
+    }
+    .brand small { display: block; color: var(--ink-soft); font-weight: 600; font-size: .72rem; letter-spacing: .04em; }
+    .nav-links { display: flex; align-items: center; gap: 1.35rem; }
+    .nav-links > a:not(.button) { text-decoration: none; color: var(--ink-soft); font-size: .92rem; font-weight: 700; }
+    .nav-links > a:not(.button):hover { color: var(--terracotta); }
+    .button {
+      display: inline-flex; align-items: center; justify-content: center; gap: .55rem;
+      min-height: 48px; padding: .8rem 1.25rem; border-radius: 999px;
+      background: var(--terracotta); color: white; text-decoration: none; font-weight: 800;
+      border: 1px solid transparent; box-shadow: 0 12px 28px rgba(182, 75, 50, .22);
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+    .button:hover { transform: translateY(-2px); background: #9f3e28; box-shadow: 0 17px 34px rgba(182, 75, 50, .28); }
+    .button.secondary { background: transparent; color: var(--ink); border-color: var(--line); box-shadow: none; }
+    .button.secondary:hover { background: var(--white); }
+    .hero {
+      position: relative; overflow: hidden; padding: clamp(5rem, 10vw, 8.5rem) 0 5.5rem;
+      background:
+        radial-gradient(circle at 85% 15%, rgba(214,157,58,.22), transparent 26rem),
+        radial-gradient(circle at 10% 85%, rgba(85,115,94,.16), transparent 26rem),
+        linear-gradient(135deg, #fffaf1 0%, #f5ead9 100%);
+    }
+    .hero::before, .hero::after {
+      content: ""; position: absolute; border: 1px solid rgba(23,50,77,.11); border-radius: 50%;
+      pointer-events: none;
+    }
+    .hero::before { width: 550px; height: 550px; right: -230px; top: -245px; }
+    .hero::after { width: 350px; height: 350px; left: -220px; bottom: -235px; }
+    .hero-grid { position: relative; display: grid; grid-template-columns: 1.2fr .8fr; gap: clamp(2rem, 7vw, 6rem); align-items: center; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: .55rem; margin-bottom: 1.25rem;
+      color: var(--terracotta); text-transform: uppercase; letter-spacing: .15em; font-size: .76rem; font-weight: 800;
+    }
+    .eyebrow::before { content: ""; width: 34px; height: 2px; background: var(--gold); }
+    h1, h2, h3 { font-family: "Playfair Display", serif; line-height: 1.08; margin-top: 0; }
+    h1 { font-size: clamp(2.8rem, 6vw, 5.8rem); letter-spacing: -.045em; margin-bottom: 1.4rem; max-width: 900px; }
+    h2 { font-size: clamp(2rem, 4vw, 3.6rem); letter-spacing: -.035em; margin-bottom: 1rem; }
+    h3 { font-size: 1.45rem; margin-bottom: .6rem; }
+    .lead { font-size: clamp(1.08rem, 2vw, 1.3rem); color: var(--ink-soft); max-width: 720px; margin: 0 0 2rem; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: .9rem; align-items: center; }
+    .microcopy { margin-top: 1rem; color: var(--ink-soft); font-size: .86rem; }
+    .hero-card {
+      position: relative; padding: 2rem; border-radius: 2rem; color: var(--paper);
+      background: var(--ink); box-shadow: var(--shadow); transform: rotate(1.2deg);
+    }
+    .hero-card::before {
+      content: ""; position: absolute; inset: 12px; border: 1px solid rgba(255,255,255,.16);
+      border-radius: 1.5rem; pointer-events: none;
+    }
+    .hero-card h2 { font-size: 2rem; }
+    .hero-card ul { list-style: none; padding: 0; margin: 1.5rem 0 0; display: grid; gap: .85rem; }
+    .hero-card li { display: flex; gap: .75rem; color: #e5ecf1; }
+    .check { flex: 0 0 25px; height: 25px; border-radius: 50%; display: grid; place-items: center; background: var(--gold); color: var(--ink); font-weight: 900; }
+    section { padding: clamp(4rem, 8vw, 7rem) 0; }
+    .section-head { max-width: 760px; margin-bottom: 2.5rem; }
+    .section-head p { color: var(--ink-soft); font-size: 1.08rem; }
+    .stats {
+      margin-top: -1.7rem; position: relative; z-index: 5;
+      display: grid; grid-template-columns: repeat(4, 1fr); background: var(--white);
+      border: 1px solid var(--line); border-radius: 1.5rem; box-shadow: var(--shadow); overflow: hidden;
+    }
+    .stat { padding: 1.4rem; text-align: center; border-right: 1px solid var(--line); }
+    .stat:last-child { border-right: 0; }
+    .stat strong { display: block; font-family: "Playfair Display", serif; font-size: 1.35rem; }
+    .stat span { color: var(--ink-soft); font-size: .85rem; }
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.1rem; }
+    .card {
+      padding: 1.7rem; border: 1px solid var(--line); border-radius: 1.4rem;
+      background: var(--white); box-shadow: 0 10px 30px rgba(23,50,77,.06);
+    }
+    .card .number { color: var(--terracotta); font-weight: 900; letter-spacing: .1em; font-size: .78rem; }
+    .card p { color: var(--ink-soft); margin-bottom: 0; }
+    .programs { background: var(--ink); color: var(--paper); }
+    .programs .section-head p { color: #c8d3db; }
+    .program-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .program {
+      border: 1px solid rgba(255,255,255,.15); border-radius: 1.4rem; padding: 1.7rem;
+      background: rgba(255,255,255,.055);
+    }
+    .program .duration { color: #f0bd62; font-weight: 900; text-transform: uppercase; letter-spacing: .12em; font-size: .76rem; }
+    .program p { color: #c8d3db; }
+    .program ul { padding-left: 1.1rem; color: #e7edf1; }
+    .programs-cta { margin-top: 2rem; display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
+    .programs-cta .button { background: var(--gold); color: var(--ink); }
+    .programs-cta p { color: #c8d3db; margin: 0; }
+    .split { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 6vw, 5rem); align-items: start; }
+    .feature-list { display: grid; gap: 1rem; }
+    .feature {
+      display: grid; grid-template-columns: 46px 1fr; gap: 1rem; align-items: start;
+      padding: 1.15rem; border-radius: 1rem; background: rgba(85,115,94,.08);
+    }
+    .feature-icon { width: 46px; height: 46px; display: grid; place-items: center; border-radius: 50%; background: var(--green); color: white; font-weight: 900; }
+    .feature h3 { font-family: "DM Sans", sans-serif; font-size: 1rem; margin: 0 0 .2rem; }
+    .feature p { color: var(--ink-soft); margin: 0; font-size: .92rem; }
+    .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; counter-reset: step; }
+    .step { position: relative; padding: 1.5rem; border-top: 3px solid var(--gold); background: var(--white); border-radius: 0 0 1rem 1rem; }
+    .step::before { counter-increment: step; content: "0" counter(step); font-family: "Playfair Display", serif; font-size: 2rem; color: var(--terracotta); }
+    .step h3 { font-family: "DM Sans", sans-serif; font-size: 1rem; margin: .4rem 0; }
+    .step p { color: var(--ink-soft); font-size: .9rem; margin: 0; }
+    .final {
+      padding: 0 0 7rem;
+    }
+    .final-box {
+      position: relative; overflow: hidden; text-align: center; color: white; background: var(--terracotta);
+      padding: clamp(2.5rem, 7vw, 5rem); border-radius: 2rem; box-shadow: var(--shadow);
+    }
+    .final-box::after {
+      content: ""; position: absolute; width: 340px; height: 340px; right: -200px; top: -220px;
+      border: 1px solid rgba(255,255,255,.22); border-radius: 50%;
+    }
+    .final-box h2 { max-width: 760px; margin-inline: auto; }
+    .final-box p { max-width: 680px; margin: 0 auto 1.6rem; color: #fff0e9; }
+    .final-box .button { background: var(--paper); color: var(--ink); box-shadow: none; }
+    .legal-note { font-size: .78rem; margin-top: 1rem !important; opacity: .9; }
+    footer { padding: 2.2rem 0 6rem; border-top: 1px solid var(--line); color: var(--ink-soft); }
+    .footer-row { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; font-size: .88rem; }
+    .footer-row a { text-underline-offset: 3px; }
+    .mobile-cta { display: none; }
+    @media (max-width: 900px) {
+      .nav-links > a:not(.button) { display: none; }
+      .hero-grid, .split { grid-template-columns: 1fr; }
+      .hero-card { max-width: 620px; transform: none; }
+      .cards, .program-grid { grid-template-columns: 1fr; }
+      .steps { grid-template-columns: 1fr 1fr; }
+      .stats { grid-template-columns: 1fr 1fr; }
+      .stat:nth-child(2) { border-right: 0; }
+      .stat:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+    }
+    @media (max-width: 620px) {
+      .wrap { width: min(100% - 1.4rem, 1160px); }
+      .nav { min-height: 64px; }
+      .brand small { display: none; }
+      .nav-links .button { display: none; }
+      .hero { padding-top: 4.5rem; }
+      .hero-actions .button { width: 100%; }
+      .stats, .steps { grid-template-columns: 1fr; }
+      .stat { border-right: 0; border-bottom: 1px solid var(--line); }
+      .stat:last-child { border-bottom: 0; }
+      .mobile-cta {
+        display: block; position: fixed; left: .7rem; right: .7rem; bottom: .7rem; z-index: 40;
+      }
+      .mobile-cta .button { width: 100%; box-shadow: 0 12px 35px rgba(23,50,77,.34); }
+      footer { padding-bottom: 7rem; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#contenido">Saltar al contenido</a>
+
+  <header class="header">
+    <div class="wrap nav">
+      <a class="brand" href="../" aria-label="Volver a Educando con chIspA">
+        <span class="brand-mark">T</span>
+        <span>Experiencias educativas en Tarazona<small>Seminario de Tarazona + Tarazona Monumental</small></span>
+      </a>
+      <nav class="nav-links" aria-label="Navegación principal">
+        <a href="#programas">Programas</a>
+        <a href="#alojamiento">Alojamiento</a>
+        <a href="#como-funciona">Cómo funciona</a>
+        <a class="button" href="https://docs.google.com/forms/d/e/1FAIpQLSeh3bAwGWhvnOZ1sdFuyykqnmxpI_NDQqgndL98llMgLTBXdw/viewform" target="_blank" rel="noopener noreferrer">Solicitar experiencia ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="eyebrow">Una propuesta educativa completa</div>
+          <h1>Convierte la excursión escolar en una experiencia que se recuerda.</h1>
+          <p class="lead">Visitas, talleres, convivencia y alojamiento en Tarazona, con programas adaptados desde Infantil hasta Bachillerato.</p>
+          <div class="hero-actions">
+            <a class="button" href="https://docs.google.com/forms/d/e/1FAIpQLSeh3bAwGWhvnOZ1sdFuyykqnmxpI_NDQqgndL98llMgLTBXdw/viewform" target="_blank" rel="noopener noreferrer">Solicitar programa y disponibilidad ↗</a>
+            <a class="button secondary" href="#programas">Ver posibilidades</a>
+          </div>
+          <p class="microcopy">Cuéntanos etapa, participantes y fechas. Prepararemos una propuesta adaptada; enviar la solicitud no confirma una reserva.</p>
+        </div>
+        <aside class="hero-card" aria-label="Qué puede incluir la experiencia">
+          <div class="eyebrow" style="color:#f0bd62">Un único proceso de solicitud</div>
+          <h2>Tarazona, patrimonio y convivencia sin tener que coordinarlo todo por separado.</h2>
+          <ul>
+            <li><span class="check">✓</span><span>Visitas didácticas, gymkhanas y talleres.</span></li>
+            <li><span class="check">✓</span><span>Excursiones de un día o estancias con alojamiento.</span></li>
+            <li><span class="check">✓</span><span>Comidas, necesidades especiales y distribución del grupo.</span></li>
+            <li><span class="check">✓</span><span>Propuesta ajustada a la etapa y objetivos del centro.</span></li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <div class="wrap stats" aria-label="Resumen de la propuesta">
+      <div class="stat"><strong>Infantil–Bachillerato</strong><span>Programas adaptados por etapa</span></div>
+      <div class="stat"><strong>1–5 días</strong><span>Desde excursión hasta residencial</span></div>
+      <div class="stat"><strong>Patrimonio activo</strong><span>Visitas, retos, juegos y talleres</span></div>
+      <div class="stat"><strong>Programa a medida</strong><span>Alojamiento y manutención opcionales</span></div>
+    </div>
+
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Aprender viviéndolo</div>
+          <h2>Mucho más que una visita convencional</h2>
+          <p>La ciudad, el patrimonio y los espacios del Seminario se convierten en un contexto para aprender, convivir y participar.</p>
+        </div>
+        <div class="cards">
+          <article class="card">
+            <div class="number">01 · PATRIMONIO</div>
+            <h3>Tarazona Monumental</h3>
+            <p>Ciudad, Catedral, Palacio Episcopal, rutas temáticas y monumentos con propuestas didácticas adaptadas a la edad.</p>
+          </article>
+          <article class="card">
+            <div class="number">02 · PARTICIPACIÓN</div>
+            <h3>Talleres y retos</h3>
+            <p>Gymkhanas, juegos de patrimonio, actividades plásticas y dinámicas que convierten al alumnado en protagonista.</p>
+          </article>
+          <article class="card">
+            <div class="number">03 · CONVIVENCIA</div>
+            <h3>Tiempo para el grupo</h3>
+            <p>Estancias educativas, comidas, deporte y espacios comunes para trabajar autonomía, cooperación y convivencia.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="programs" id="programas">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow" style="color:#f0bd62">Una duración para cada objetivo</div>
+          <h2>Excursión de un día o experiencia con estancia</h2>
+          <p>Estas son estructuras orientativas. El programa definitivo se adapta a la etapa, fechas, número de participantes y servicios solicitados.</p>
+        </div>
+        <div class="program-grid">
+          <article class="program">
+            <div class="duration">1 día</div>
+            <h3>Tarazona, aula viva</h3>
+            <p>Para descubrir la ciudad y aprender patrimonio mediante una jornada completa y participativa.</p>
+            <ul><li>Visitas didácticas</li><li>Ruta, gymkhana o taller</li><li>Comida propia o contratada</li></ul>
+          </article>
+          <article class="program">
+            <div class="duration">2–3 días</div>
+            <h3>Patrimonio y convivencia</h3>
+            <p>Una propuesta que suma alojamiento, manutención y tiempo de convivencia al programa cultural.</p>
+            <ul><li>Tarazona Monumental</li><li>Seminario y alojamiento</li><li>Opciones de Moncayo o Veruela</li></ul>
+          </article>
+          <article class="program">
+            <div class="duration">4–5 días</div>
+            <h3>Residencial educativo</h3>
+            <p>Para semanas culturales, convivencia, proyectos interdisciplinarios o programas de inmersión.</p>
+            <ul><li>Programa temático</li><li>Actividades y talleres</li><li>Opciones de naturaleza y territorio</li></ul>
+          </article>
+        </div>
+        <div class="programs-cta">
+          <a class="button" href="https://docs.google.com/forms/d/e/1FAIpQLSeh3bAwGWhvnOZ1sdFuyykqnmxpI_NDQqgndL98llMgLTBXdw/viewform" target="_blank" rel="noopener noreferrer">Pedir una propuesta adaptada ↗</a>
+          <p>No necesitas diseñar el programa antes de escribirnos.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="alojamiento">
+      <div class="wrap split">
+        <div>
+          <div class="eyebrow">Seminario de Tarazona</div>
+          <h2>Alojamiento, comidas y espacios en el mismo proceso</h2>
+          <p class="lead">Indica en el formulario cuántas personas se alojarán, las noches, el tipo de grupo y los servicios de manutención. La propuesta reflejará las opciones compatibles.</p>
+          <a class="button secondary" href="https://docs.google.com/forms/d/e/1FAIpQLSeh3bAwGWhvnOZ1sdFuyykqnmxpI_NDQqgndL98llMgLTBXdw/viewform" target="_blank" rel="noopener noreferrer">Consultar una estancia ↗</a>
+        </div>
+        <div class="feature-list">
+          <div class="feature"><div class="feature-icon">H</div><div><h3>Hospedería y albergue</h3><p>Modalidad sujeta a composición del grupo, fechas y disponibilidad.</p></div></div>
+          <div class="feature"><div class="feature-icon">M</div><div><h3>Manutención</h3><p>Desayunos, comidas, cenas, meriendas y comunicación de dietas especiales.</p></div></div>
+          <div class="feature"><div class="feature-icon">E</div><div><h3>Espacios para convivir</h3><p>Aulas, comedores, zonas comunes y opciones deportivas según el programa.</p></div></div>
+          <div class="feature"><div class="feature-icon">A</div><div><h3>Atención a necesidades</h3><p>Accesibilidad, alergias, edades y preferencias de distribución desde la solicitud.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="como-funciona" style="background:var(--cream)">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Cómo solicitar la experiencia</div>
+          <h2>Del formulario a una propuesta clara</h2>
+          <p>Un recorrido sencillo para que el centro pueda valorar programa, servicios y presupuesto antes de confirmar.</p>
+        </div>
+        <div class="steps">
+          <article class="step"><h3>Completa la solicitud</h3><p>Centro, etapa, participantes, fechas, actividades, alojamiento y comidas.</p></article>
+          <article class="step"><h3>Revisamos el grupo</h3><p>Comprobamos necesidades y preparamos la combinación más adecuada.</p></article>
+          <article class="step"><h3>Recibes la propuesta</h3><p>Programa, servicios, presupuesto y condiciones para poder decidir.</p></article>
+          <article class="step"><h3>Confirmamos la reserva</h3><p>Solo tras la aceptación escrita y el proceso de confirmación indicado.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="final" id="solicitud">
+      <div class="wrap">
+        <div class="final-box">
+          <h2>Cuéntanos cómo es vuestro grupo y diseñamos la experiencia.</h2>
+          <p>El formulario recoge actividades, fechas, participantes, alojamiento, comidas y necesidades especiales para preparar una propuesta realmente útil.</p>
+          <a class="button" href="https://docs.google.com/forms/d/e/1FAIpQLSeh3bAwGWhvnOZ1sdFuyykqnmxpI_NDQqgndL98llMgLTBXdw/viewform" target="_blank" rel="noopener noreferrer">Solicitar programa y disponibilidad ↗</a>
+          <p class="legal-note">El envío es una solicitud de información y disponibilidad; no supone una reserva confirmada.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-row">
+      <span>Experiencias educativas en Tarazona · Seminario de Tarazona + Tarazona Monumental</span>
+      <span><a href="../">Educando con chIspA</a> · <a href="https://ia.educandoconchispa.com/privacidad.html">Privacidad</a></span>
+    </div>
+  </footer>
+
+  <div class="mobile-cta">
+    <a class="button" href="https://docs.google.com/forms/d/e/1FAIpQLSeh3bAwGWhvnOZ1sdFuyykqnmxpI_NDQqgndL98llMgLTBXdw/viewform" target="_blank" rel="noopener noreferrer">Solicitar experiencia ↗</a>
+  </div>
+</body>
+</html>
